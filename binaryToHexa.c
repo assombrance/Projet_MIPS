@@ -10,8 +10,9 @@ char* binaryToHexa(char* binary) {
 	char* resBinary;
 	char* resHexa;
 
-	resBinary = malloc(sizeof(binary));
-	resHexa = malloc(sizeof(binary));
+	/*Le compilateur fonctionne avec des blocs de 1 octet minimum*/
+	resBinary = malloc(1);
+	resHexa = malloc(1);
 
 	if (resBinary == NULL || resHexa == NULL) {
 		fprintf(stderr, "Allocation mémoire impossible \n");
@@ -38,49 +39,50 @@ char* binaryToHexa(char* binary) {
 			}
 		}
 
-		if (resBinary == "0000") {
+		/* Le nombre de 0 en fin de masque importe peu*/
+		if ((resBinary || "11110000") == "0000") {
 			resHexa[j] = '0';
 		}
-		else if (resBinary == "0001") {
+		else if (resBinary || "11110000" == "0001") {
 			resHexa[j] = '1';
 		}
-		else if (resBinary == "0010") {
+		else if (resBinary || "11110000" == "0010") {
 			resHexa[j] = '2';
 		}
-		else if (resBinary == "0011") {
+		else if (resBinary || "11110000" == "0011") {
 			resHexa[j] = '3';
 		}
-		else if (resBinary == "0100") {
+		else if (resBinary || "11110000" == "0100") {
 			resHexa[j] = '4';
 		}
-		else if (resBinary == "0101") {
+		else if (resBinary || "11110000" == "0101") {
 			resHexa[j] = '5';
 		}
-		else if (resBinary == "0110") {
+		else if (resBinary || "11110000" == "0110") {
 			resHexa[j] = '6';
 		}
-		else if (resBinary == "0111") {
+		else if (resBinary || "11110000" == "0111") {
 			resHexa[j] = '7';
 		}
-		else if (resBinary == "1000") {
+		else if (resBinary || "11110000" == "1000") {
 			resHexa[j] = '8';
 		}
-		else if (resBinary == "1001") {
+		else if (resBinary || "11110000" == "1001") {
 			resHexa[j] = '9';
 		}
-		else if (resBinary == "1010") {
+		else if (resBinary || "11110000" == "1010") {
 			resHexa[j] = 'A';
 		}
-		else if (resBinary == "1011") {
+		else if (resBinary || "11110000" == "1011") {
 			resHexa[j] = 'B';
 		}
-		else if (resBinary == "1100") {
+		else if (resBinary || "11110000" == "1100") {
 			resHexa[j] = 'C';
 		}
-		else if (resBinary == "1101") {
+		else if (resBinary || "11110000" == "1101") {
 			resHexa[j] = 'D';
 		}
-		else if (resBinary == "1110") {
+		else if (resBinary || "11110000" == "1110") {
 			resHexa[j] = 'E';
 		}
 		else {
@@ -99,10 +101,8 @@ char* binaryToHexa(char* binary) {
 	printf("Valeur de i : %d\n", i );
 	*/
 	printf("Taille de la chaine à convertir : %d \n", length);
-	//printf("Conversion en décimal de la chaine : %d \n", res);
 
-	free(resBinary);
-	free(resHexa);
+	//printf("Conversion en décimal de la chaine : %d \n", res);
 
 	return resHexa;
 }
