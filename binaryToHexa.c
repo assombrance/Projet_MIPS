@@ -1,20 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "binaryToHexa.h"
 
-int binaryToHexa(char* binary);
-
-int main(int argc, char* argv[]) {
-
-	binaryToHexa(argv[1]);
-
-	return 0;
-}
 
 int binaryToHexa(char* binary) {
 
 	int length;
-	int i, j;
+	int i, octet;
 	int res = 0;
 
 	length = strlen(binary);
@@ -43,7 +33,7 @@ int binaryToHexa(char* binary) {
 	printf("Valeur de i : %d\n", i );
 	*/
 	printf("Taille de la chaine à convertir : %d \n", length);
-	printf("Conversion en décimal de la chaine : %X \n", res);
+	printf("Conversion en décimal de la chaine : %d \n", res);
 
 	return res;
 }
