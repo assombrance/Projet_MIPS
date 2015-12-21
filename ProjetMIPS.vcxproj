@@ -99,6 +99,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="binaryToDecimal.c" />
     <ClCompile Include="binaryToHexa.c" />
     <ClCompile Include="binaryToHexa_concatenation.c" />
     <ClCompile Include="binaryToHexa_concatenation.cpp" />

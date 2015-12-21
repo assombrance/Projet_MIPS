@@ -5,4 +5,5 @@
 
 #define HALF_BYTE = 4
 
-int binaryToHexa(char* binary);
+char* binaryToHexa(char* binary);
+int binaryToDecimal(char* binary);

@@ -36,6 +36,9 @@
     <ClCompile Include="binaryToHexa_concatenation.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="binaryToDecimal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">
