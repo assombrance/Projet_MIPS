@@ -1,12 +1,12 @@
-#include "convMnemo.h"
 #define MAX_SIZE 4
 
+/*
 int convMnemo(char* ligne) {
  //convertit une ligne en son code hexadécimal
   int pointeur=0; //pointeur pour lire la ligne
   int i=0,resultat;
   char* operation[MAX_SIZE];
-
+  /*
   while (...) {//va au premier non espace
     pointeur++;
   }
@@ -19,7 +19,7 @@ int convMnemo(char* ligne) {
 
   if (operation == "ADD") {
     resultat = add(ligne);
-  } else if (operaton == "ADDI") {
+  } else if (operation == "ADDI") {
     resultat = addi(ligne);
   } else if (operation == "SUB") {
     resultat = sub(ligne);
@@ -70,4 +70,8 @@ int convMnemo(char* ligne) {
     return -1;
   }
 
-}
+  }
+
+  */
+
+
