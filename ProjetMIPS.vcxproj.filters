@@ -24,6 +24,18 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="binaryToHexa_parsing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="binaryToHexa_conversion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="binaryToHexa_concatenation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="binaryToHexa_concatenation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">

@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[]) {
 
-	binaryToHexa("1010");
+	binaryToHexa("0001100000110010");
 	getchar();
 
 	return 0;

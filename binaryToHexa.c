@@ -4,24 +4,25 @@
 int binaryToHexa(char* binary) {
 
 	int length;
-	int i, octet;
+	int i;
 	int res = 0;
 
 	length = strlen(binary);
 
 	/* Parcours de la chaîne de droite à gauche pour la conversion*/
-	for (i = 0; i < length; i++) {
-		printf("i = %d : ", i);
-		if (binary[i] == '1') {
-			res = (res << 1) | 1;
-			printf("res = %d \n", res);
-		}
-		else {
-			res = res << 1;
-			printf("res = %d \n", res);
+		for (i = 0; i < length; i++) {
+			printf("i = %d : ", i);
+			if (binary[i] == '1') {
+				res = (res << 1) | 1;
+				printf("res = %d \n", res);
+			}
+			else {
+				res = res << 1;
+				printf("res = %d \n", res);
 
+			}
 		}
-	}
+	
 
 	/* 'b' pour indiquer que la valeur que l'on renseigne est binaire */
 
