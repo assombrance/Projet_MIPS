@@ -11,8 +11,8 @@ char* binaryToHexa(char* binary) {
 	char* resHexa;
 
 	/*Le compilateur fonctionne avec des blocs de 1 octet minimum*/
-	resBinary = malloc(1);
-	resHexa = malloc(1);
+	resBinary = malloc(HALF_BYTE);
+	resHexa = malloc(HALF_BYTE);
 
 	if (resBinary == NULL || resHexa == NULL) {
 		fprintf(stderr, "Allocation mémoire impossible \n");
@@ -29,8 +29,9 @@ char* binaryToHexa(char* binary) {
 	}
 
 	/* Parcours de la chaîne de droite à gauche pour la conversion*/
+	i = 0;
 	for (j = 0; j < nb_HALF_BYTE; j++) {
-		for (i = 0; i < HALF_BYTE; i++) {
+		for (i; i < (HALF_BYTE + HALF_BYTE*j) ; ++i) {
 			if (binary[i] == '1') {
 				resBinary[i] = '1';
 			}
