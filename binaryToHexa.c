@@ -6,7 +6,7 @@ char* binaryToHexa(char* binary) {
 
 	int length;
 	int nb_HALF_BYTE;
-	int i, j;
+	unsigned int i, j;
 	char* resBinary;
 	char* resHexa;
 
@@ -31,7 +31,7 @@ char* binaryToHexa(char* binary) {
 	/* Parcours de la chaîne de droite à gauche pour la conversion*/
 	i = 0;
 	for (j = 0; j < nb_HALF_BYTE; j++) {
-		for (i; i < (HALF_BYTE + HALF_BYTE*j) ; ++i) {
+		for (i; i < (HALF_BYTE + HALF_BYTE*j) ; i++) {
 			if (binary[i] == '1') {
 				resBinary[i] = '1';
 			}

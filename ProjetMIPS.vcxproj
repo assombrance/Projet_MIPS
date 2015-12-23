@@ -104,6 +104,7 @@
     <ClCompile Include="binaryToHexa_concatenation.c" />
     <ClCompile Include="binaryToHexa_concatenation.cpp" />
     <ClCompile Include="binaryToHexa_conversion.cpp" />
+    <ClCompile Include="binaryToHexa_mask.c" />
     <ClCompile Include="binaryToHexa_parsing.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c" />

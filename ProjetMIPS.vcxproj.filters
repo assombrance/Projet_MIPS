@@ -39,6 +39,9 @@
     <ClCompile Include="binaryToDecimal.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="binaryToHexa_mask.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">

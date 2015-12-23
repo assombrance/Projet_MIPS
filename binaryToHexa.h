@@ -7,3 +7,4 @@
 
 char* binaryToHexa(char* binary);
 int binaryToDecimal(char* binary);
+char* binaryToHexa_mask(unsigned int lenght, unsigned int offset, unsigned int nb);
