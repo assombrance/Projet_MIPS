@@ -7,12 +7,16 @@ char* binaryToHexa(char* binary) {
 	int length;
 	int nb_HALF_BYTE;
 	unsigned int i, j;
-	char* resBinary;
-	char* resHexa;
+	char* mask;
+	char* resBinary = NULL;
+	char* resHexa = NULL;
+
+	printf("taille de la chaine à convertir en octets : %d", sizeof(binary));
 
 	/*Le compilateur fonctionne avec des blocs de 1 octet minimum*/
-	resBinary = malloc(HALF_BYTE);
-	resHexa = malloc(HALF_BYTE);
+	resBinary = malloc(sizeof(binary));
+	resHexa = malloc(sizeof(binary));
+	mask = malloc(sizeof(binary));
 
 	if (resBinary == NULL || resHexa == NULL) {
 		fprintf(stderr, "Allocation mémoire impossible \n");
@@ -39,6 +43,8 @@ char* binaryToHexa(char* binary) {
 				resBinary[i] = '0';
 			}
 		}
+
+		mask = binaryToHexa_mask(strlen(resBinary), i, 4);
 
 		/* Le nombre de 0 en fin de masque importe peu*/
 		if ((resBinary || "11110000") == "0000") {

@@ -7,19 +7,22 @@
 
 char* binaryToHexa_mask(length, offset, nb) {
 
-	char* mask;
+	char *mask = NULL;
 	unsigned int i;
 
-	mask = malloc(length);
+	mask = malloc(sizeof(*mask) * (length + 1));
 	
 	i = 0;
 
-	while (mask[i] != EOF) {
+	/* Création d'une chaîne de 0 */
+	while (*mask++) {
 		mask[i] = '0';
 		i++;
 	}
+	mask[i] = '\0';
 
-	for (i = offset; i <= offset + nb; i++) {
+	/* Ajout des "1" dans la chaîne de "0" */
+	for (i = offset; i < offset + nb; i++) {
 		mask[i] = '1';
 	}
 
