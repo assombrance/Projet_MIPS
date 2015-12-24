@@ -4,41 +4,35 @@
 
 char* binaryToHexa(char* binary) {
 
-	int length;
-	int nb_HALF_BYTE;
 	unsigned int i, j, k;
 	char* mask;
 	char* resBinary = NULL;
 	char* resHexa = NULL;
 	char* binary_masked = NULL;
 	char* binary_parsed = NULL;
+	char* binary_normalized = NULL;
 
 	/*Le compilateur fonctionne avec des blocs de 1 octet minimum*/
 	resBinary = malloc(sizeof(*resBinary) * (strlen(binary) + 1));
 	resHexa = malloc(sizeof(*resHexa) * (strlen(binary) + 1));
 	binary_parsed = malloc(sizeof(*binary_parsed) * (HALF_BYTE + 1));
+	binary_normalized = malloc(sizeof(*binary_normalized) * 32);
 
-	if (resBinary == NULL || resHexa == NULL) {
+	if (resBinary == NULL || resHexa == NULL || binary_parsed == NULL || binary_normalized == NULL ) {
 		fprintf(stderr, "Allocation mémoire impossible \n");
 		exit(EXIT_FAILURE);
 	}
 
-	length = strlen(binary);
-
-	if (length % HALF_BYTE == 0) {
-		nb_HALF_BYTE = length / HALF_BYTE;
-	}
-	else {
-		nb_HALF_BYTE = ceil(length / HALF_BYTE);
-	}
+	/* Normalisation de la taille de la chaîne à convertir */
+	binary_normalized = binaryToHexa_normalizeLength(binary);
 
 	/* Parcours de la chaîne de gauche à droite pour la conversion*/
 	i = 0;
 
-	for (j = 0; j < nb_HALF_BYTE; j++) {
+	for (j = 0; j < strlen(binary_normalized) / HALF_BYTE; j++) {
 
 		for (i; i < (HALF_BYTE + HALF_BYTE*j); i++) {
-			if (binary[i] == '1') {
+			if (binary_normalized[i] == '1') {
 				resBinary[i] = '1';
 			}
 			else {

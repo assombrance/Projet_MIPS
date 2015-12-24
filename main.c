@@ -6,7 +6,7 @@ int main(int argc, char* argv[]) {
 
 	res = malloc(sizeof(*res) + 6);
 
-	res = binaryToHexa("11000011110000");
+	res = binaryToHexa("1101001");
 
 
 	return 0;
