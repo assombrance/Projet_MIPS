@@ -22,15 +22,10 @@ char* binaryToHexa_mask(length, offset, nb) {
 	mask[i] = '\0';
 
 	/* Ajout des "1" dans la chaîne de "0" */
-	if (offset + nb <= strlen(mask)) {
 		for (i = offset - 1; i < (offset - 1) + nb; i++) {
 			mask[i] = '1';
+	
 		}
-	}
-	else {
-		fprintf(stderr, "Le nombre de bits à 1 excède la taille du masque \n");
-		exit(EXIT_FAILURE);
-	}
 	
 	return mask;
 }

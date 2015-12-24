@@ -34,6 +34,8 @@ char* binaryToHexa(char* binary) {
 	/* Parcours de la chaîne de droite à gauche pour la conversion*/
 	i = 0;
 	for (j = 0; j < nb_HALF_BYTE; j++) {
+		
+
 		for (i; i < (HALF_BYTE + HALF_BYTE*j) ; i++) {
 			if (binary[i] == '1') {
 				resBinary[i] = '1';
@@ -42,53 +44,54 @@ char* binaryToHexa(char* binary) {
 				resBinary[i] = '0';
 			}
 		}
+		resBinary[i] = '\0';
 
-		mask = binaryToHexa_mask(strlen(resBinary), i, 4);
+		mask = binaryToHexa_mask(strlen(resBinary), i+1-4, 4);
 
 		/* Le nombre de 0 en fin de masque importe peu*/
-		if ((resBinary || "11110000") == "0000") {
+		if ((resBinary && mask) == "0000") {
 			resHexa[j] = '0';
 		}
-		else if (resBinary || "11110000" == "0001") {
+		else if (resBinary && mask == "0001") {
 			resHexa[j] = '1';
 		}
-		else if (resBinary || "11110000" == "0010") {
+		else if (resBinary && mask == "0010") {
 			resHexa[j] = '2';
 		}
-		else if (resBinary || "11110000" == "0011") {
+		else if (resBinary && mask == "0011") {
 			resHexa[j] = '3';
 		}
-		else if (resBinary || "11110000" == "0100") {
+		else if (resBinary && mask == "0100") {
 			resHexa[j] = '4';
 		}
-		else if (resBinary || "11110000" == "0101") {
+		else if (resBinary && mask == "0101") {
 			resHexa[j] = '5';
 		}
-		else if (resBinary || "11110000" == "0110") {
+		else if (resBinary && mask == "0110") {
 			resHexa[j] = '6';
 		}
-		else if (resBinary || "11110000" == "0111") {
+		else if (resBinary && mask == "0111") {
 			resHexa[j] = '7';
 		}
-		else if (resBinary || "11110000" == "1000") {
+		else if (resBinary && mask == "1000") {
 			resHexa[j] = '8';
 		}
-		else if (resBinary || "11110000" == "1001") {
+		else if (resBinary && mask == "1001") {
 			resHexa[j] = '9';
 		}
-		else if (resBinary || "11110000" == "1010") {
+		else if (resBinary && mask == "1010") {
 			resHexa[j] = 'A';
 		}
-		else if (resBinary || "11110000" == "1011") {
+		else if (resBinary && mask == "1011") {
 			resHexa[j] = 'B';
 		}
-		else if (resBinary || "11110000" == "1100") {
+		else if (resBinary && mask == "1100") {
 			resHexa[j] = 'C';
 		}
-		else if (resBinary || "11110000" == "1101") {
+		else if (resBinary && mask == "1101") {
 			resHexa[j] = 'D';
 		}
-		else if (resBinary || "11110000" == "1110") {
+		else if (resBinary && mask == "1110") {
 			resHexa[j] = 'E';
 		}
 		else {
