@@ -11,3 +11,4 @@ char* binaryToHexa_mask(unsigned int lenght, unsigned int offset, unsigned int n
 char* binaryToHexa_parsing(char* binary_masked);
 char binaryToHexa_conversion(char* binary_parsed);
 char* binaryToHexa_ET(char* resBinary, char* mask);
+char* binaryToHexa_normalizeLength(char* binary);

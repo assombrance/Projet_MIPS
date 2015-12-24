@@ -13,13 +13,10 @@ char* binaryToHexa(char* binary) {
 	char* binary_masked = NULL;
 	char* binary_parsed = NULL;
 
-	printf("taille de la chaine à convertir en octets : %d", sizeof(binary));
-
 	/*Le compilateur fonctionne avec des blocs de 1 octet minimum*/
 	resBinary = malloc(sizeof(*resBinary) * (strlen(binary) + 1));
 	resHexa = malloc(sizeof(*resHexa) * (strlen(binary) + 1));
 	binary_parsed = malloc(sizeof(*binary_parsed) * (HALF_BYTE + 1));
-
 
 	if (resBinary == NULL || resHexa == NULL) {
 		fprintf(stderr, "Allocation mémoire impossible \n");
@@ -35,7 +32,7 @@ char* binaryToHexa(char* binary) {
 		nb_HALF_BYTE = ceil(length / HALF_BYTE);
 	}
 
-	/* Parcours de la chaîne de droite à gauche pour la conversion*/
+	/* Parcours de la chaîne de gauche à droite pour la conversion*/
 	i = 0;
 
 	for (j = 0; j < nb_HALF_BYTE; j++) {

@@ -109,11 +109,10 @@
   <ItemGroup>
     <ClCompile Include="binaryToDecimal.c" />
     <ClCompile Include="binaryToHexa.c" />
-    <ClCompile Include="binaryToHexa_concatenation.c" />
-    <ClCompile Include="binaryToHexa_concatenation.cpp" />
     <ClCompile Include="binaryToHexa_conversion.c" />
     <ClCompile Include="binaryToHexa_ET.c" />
     <ClCompile Include="binaryToHexa_mask.c" />
+    <ClCompile Include="binaryToHexa_normalizeLength.c" />
     <ClCompile Include="binaryToHexa_parsing.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c" />
