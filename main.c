@@ -2,7 +2,12 @@
 
 int main(int argc, char* argv[]) {
 
-	binaryToHexa("0001100000110010");
+	char* res;
+
+	res = malloc(sizeof(*res) + 6);
+
+	res = binaryToHexa("10010010");
+
 
 	return 0;
 }

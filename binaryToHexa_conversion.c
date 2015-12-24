@@ -4,49 +4,49 @@ char binaryToHexa_conversion(char* binary_parsed) {
 
 	char resHexa;
 
-	if (binary_parsed == "0000") {
+	if (strcmp(binary_parsed, "0000") == 0) {
 		resHexa = '0';
 	}
-	else if (binary_parsed == "0001") {
+	else if (strcmp(binary_parsed, "0001") == 0) {
 		resHexa = '1';
 	}
-	else if (binary_parsed == "0010") {
+	else if (strcmp(binary_parsed, "0010") == 0) {
 		resHexa = '2';
 	}
-	else if (binary_parsed == "0011") {
+	else if (strcmp(binary_parsed, "0011") == 0) {
 		resHexa = '3';
 	}
-	else if (binary_parsed == "0100") {
+	else if (strcmp(binary_parsed, "0100") == 0) {
 		resHexa = '4';
 	}
-	else if (binary_parsed == "0101") {
+	else if (strcmp(binary_parsed, "0101") == 0) {
 		resHexa = '5';
 	}
-	else if (binary_parsed == "0110") {
+	else if (strcmp(binary_parsed, "0110") == 0) {
 		resHexa = '6';
 	}
-	else if (binary_parsed == "0111") {
+	else if (strcmp(binary_parsed, "0111") == 0) {
 		resHexa = '7';
 	}
-	else if (binary_parsed == "1000") {
+	else if (strcmp(binary_parsed, "1000") == 0) {
 		resHexa = '8';
 	}
-	else if (binary_parsed == "1001") {
+	else if (strcmp(binary_parsed, "1001") == 0) {
 		resHexa = '9';
 	}
-	else if (binary_parsed == "1010") {
+	else if (strcmp(binary_parsed, "1010") == 0) {
 		resHexa = 'A';
 	}
-	else if (binary_parsed == "1011") {
+	else if (strcmp(binary_parsed, "1011") == 0) {
 		resHexa = 'B';
 	}
-	else if (binary_parsed == "1100") {
+	else if (strcmp(binary_parsed, "1100") == 0) {
 		resHexa = 'C';
 	}
-	else if (binary_parsed == "1101") {
+	else if (strcmp(binary_parsed, "1101") == 0) {
 		resHexa = 'D';
 	}
-	else if (binary_parsed == "1110") {
+	else if (strcmp(binary_parsed, "1110") == 0) {
 		resHexa = 'E';
 	}
 	else {

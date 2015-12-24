@@ -24,11 +24,13 @@ char* binaryToHexa_parsing(char* binary_masked) {
 		if (binary_masked[i] == '0') {
 
 			for (j = offset; j < offset + HALF_BYTE; j++) {
-				buffer += binary_masked[j];
-				binary_parsed[j] = binary_masked[j];
+				if (binary_masked[j] == '1') { /* sinon il considère le caractère ASCII donc 48 pour '0'...*/
+					buffer += 1;
+				}
+				binary_parsed[j - offset] = binary_masked[j];
 			}
 
-			binary_parsed[j] = '\0';
+			binary_parsed[j - offset] = '\0';
 
 			if (buffer != 0) {
 				flag = 1;
@@ -39,14 +41,14 @@ char* binaryToHexa_parsing(char* binary_masked) {
 		}
 		else {
 			for (j = offset; j < offset + HALF_BYTE; j++) {
-				binary_parsed[j] = binary_masked[j];
+				binary_parsed[j - offset*j] = binary_masked[j];
 			}
-			binary_parsed[j] = '\0';
+			binary_parsed[j - offset] = '\0';
 			flag = 1;
 		}	
 
 		i++;
-		offset += HALF_BYTE - 1;
+		offset += HALF_BYTE;
 	}
 
 	return binary_parsed;
