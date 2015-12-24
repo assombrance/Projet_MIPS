@@ -56,7 +56,7 @@ char* binaryToHexa(char* binary) {
 			binary_masked[k] = '0';
 		}
 		binary_masked[k] = '\0';
-		resBinary && mask;
+		binary_masked = binaryToHexa_ET(resBinary, mask);
 		binary_parsed = binaryToHexa_parsing(binary_masked);
 
 		resHexa[j] = binaryToHexa_conversion(binary_parsed);
