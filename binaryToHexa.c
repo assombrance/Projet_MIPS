@@ -2,6 +2,13 @@
 
 #define HALF_BYTE 4
 
+/* ***************************************************** *
+ *                binaryToHexa v1.2                      *
+ * Conversion d'une chaîne de caractères binaires en     *
+ * héxadécimal.                                          *
+ * ***************************************************** */
+
+
 char* binaryToHexa(char* binary) {
 
 	unsigned int i, j, k;
@@ -12,7 +19,6 @@ char* binaryToHexa(char* binary) {
 	char* binary_parsed = NULL;
 	char* binary_normalized = NULL;
 
-	/*Le compilateur fonctionne avec des blocs de 1 octet minimum*/
 	resBinary = malloc(sizeof(*resBinary) * (strlen(binary) + 1));
 	resHexa = malloc(sizeof(*resHexa) * (strlen(binary) + 1));
 	binary_parsed = malloc(sizeof(*binary_parsed) * (HALF_BYTE + 1));
@@ -41,27 +47,20 @@ char* binaryToHexa(char* binary) {
 		}
 		resBinary[i] = '\0';
 
+		/* Création du masque */
 		mask = binaryToHexa_mask(strlen(resBinary), i + 1 - 4, 4);
 		binary_masked = malloc(sizeof(*binary_masked) * (strlen(mask) + 1));
 		for (k = 0; k < strlen(mask); k++) {
 			binary_masked[k] = '0';
 		}
 		binary_masked[k] = '\0';
+		/* Application du masque à la chaîne de caractères */
 		binary_masked = binaryToHexa_ET(resBinary, mask);
+		/* Reconnaissance des groupes de bits masqués */
 		binary_parsed = binaryToHexa_parsing(binary_masked);
 
 		resHexa[j] = binaryToHexa_conversion(binary_parsed);
 		resHexa[j + 1] = '\0';
-
-		/* 'b' pour indiquer que la valeur que l'on renseigne est binaire */
-
-		/*
-		while (binary[i] != 'b' && i <= length) {
-		i++;
-		}
-
-		printf("Valeur de i : %d\n", i );
-		*/
 
 	}
 
