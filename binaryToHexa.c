@@ -16,8 +16,8 @@ char* binaryToHexa(char* binary) {
 	printf("taille de la chaine à convertir en octets : %d", sizeof(binary));
 
 	/*Le compilateur fonctionne avec des blocs de 1 octet minimum*/
-	resBinary = malloc(sizeof(*resBinary) * (strlen(binary) + 1) );
-	resHexa = malloc(sizeof(*resHexa) * (strlen(binary) + 1) );
+	resBinary = malloc(sizeof(*resBinary) * (strlen(binary) + 1));
+	resHexa = malloc(sizeof(*resHexa) * (strlen(binary) + 1));
 	binary_parsed = malloc(sizeof(*binary_parsed) * (HALF_BYTE + 1));
 
 
@@ -37,8 +37,8 @@ char* binaryToHexa(char* binary) {
 
 	/* Parcours de la chaîne de droite à gauche pour la conversion*/
 	i = 0;
-	for (j = 0; j < nb_HALF_BYTE; j++) {
 
+	for (j = 0; j < nb_HALF_BYTE; j++) {
 
 		for (i; i < (HALF_BYTE + HALF_BYTE*j); i++) {
 			if (binary[i] == '1') {
@@ -60,7 +60,7 @@ char* binaryToHexa(char* binary) {
 		binary_parsed = binaryToHexa_parsing(binary_masked);
 
 		resHexa[j] = binaryToHexa_conversion(binary_parsed);
-
+		resHexa[j + 1] = '\0';
 
 		/* 'b' pour indiquer que la valeur que l'on renseigne est binaire */
 
