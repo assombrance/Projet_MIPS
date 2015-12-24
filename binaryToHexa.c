@@ -7,15 +7,21 @@ char* binaryToHexa(char* binary) {
 	int length;
 	int nb_HALF_BYTE;
 	unsigned int i, j;
+	unsigned int word_length = 4;
 	char* mask;
 	char* resBinary = NULL;
 	char* resHexa = NULL;
+	char* binary_masked = NULL;
+	char* binary_parsed = NULL;
 
 	printf("taille de la chaine à convertir en octets : %d", sizeof(binary));
 
 	/*Le compilateur fonctionne avec des blocs de 1 octet minimum*/
 	resBinary = malloc(sizeof(*resBinary) * (strlen(binary) + 1) );
 	resHexa = malloc(sizeof(*resHexa) * (strlen(binary) + 1) );
+	binary_masked = malloc(sizeof(*binary_masked) * (strlen(binary) + 1));
+	binary_parsed = malloc(sizeof(*binary_parsed) * (word_length + 1));
+
 
 	if (resBinary == NULL || resHexa == NULL) {
 		fprintf(stderr, "Allocation mémoire impossible \n");
@@ -47,57 +53,10 @@ char* binaryToHexa(char* binary) {
 		resBinary[i] = '\0';
 
 		mask = binaryToHexa_mask(strlen(resBinary), i+1-4, 4);
-
-		/* Le nombre de 0 en fin de masque importe peu*/
-		if ((resBinary && mask) == "0000") {
-			resHexa[j] = '0';
-		}
-		else if (resBinary && mask == "0001") {
-			resHexa[j] = '1';
-		}
-		else if (resBinary && mask == "0010") {
-			resHexa[j] = '2';
-		}
-		else if (resBinary && mask == "0011") {
-			resHexa[j] = '3';
-		}
-		else if (resBinary && mask == "0100") {
-			resHexa[j] = '4';
-		}
-		else if (resBinary && mask == "0101") {
-			resHexa[j] = '5';
-		}
-		else if (resBinary && mask == "0110") {
-			resHexa[j] = '6';
-		}
-		else if (resBinary && mask == "0111") {
-			resHexa[j] = '7';
-		}
-		else if (resBinary && mask == "1000") {
-			resHexa[j] = '8';
-		}
-		else if (resBinary && mask == "1001") {
-			resHexa[j] = '9';
-		}
-		else if (resBinary && mask == "1010") {
-			resHexa[j] = 'A';
-		}
-		else if (resBinary && mask == "1011") {
-			resHexa[j] = 'B';
-		}
-		else if (resBinary && mask == "1100") {
-			resHexa[j] = 'C';
-		}
-		else if (resBinary && mask == "1101") {
-			resHexa[j] = 'D';
-		}
-		else if (resBinary && mask == "1110") {
-			resHexa[j] = 'E';
-		}
-		else {
-			resHexa[j] = 'F';
-		}
-	}
+		binary_masked = resBinary && mask;
+		binary_parsed = binaryToHexa_parsing(binary_masked);
+		
+		resHexa[j] = binaryToHexa_conversion(binary_parsed);
 	
 
 	/* 'b' pour indiquer que la valeur que l'on renseigne est binaire */

@@ -98,12 +98,20 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="binaryToDecimal.c" />
     <ClCompile Include="binaryToHexa.c" />
     <ClCompile Include="binaryToHexa_concatenation.c" />
     <ClCompile Include="binaryToHexa_concatenation.cpp" />
-    <ClCompile Include="binaryToHexa_conversion.cpp" />
+    <ClCompile Include="binaryToHexa_conversion.c" />
     <ClCompile Include="binaryToHexa_mask.c" />
     <ClCompile Include="binaryToHexa_parsing.c" />
     <ClCompile Include="main.c" />
