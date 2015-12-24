@@ -15,7 +15,7 @@ char* binaryToHexa_parsing(char* binary_masked) {
 	unsigned int flag = 0;
 	unsigned int offset = 0;
 	char* binary_parsed;
-	int buffer;
+	int buffer = 0;
 
 	binary_parsed = malloc(sizeof(*binary_parsed) * (HALF_BYTE + 1));
 

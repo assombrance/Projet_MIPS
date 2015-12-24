@@ -42,6 +42,9 @@
     <ClCompile Include="binaryToHexa_conversion.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="binaryToHexa_ET.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">

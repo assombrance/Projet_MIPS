@@ -10,3 +10,4 @@ int binaryToDecimal(char* binary);
 char* binaryToHexa_mask(unsigned int lenght, unsigned int offset, unsigned int nb);
 char* binaryToHexa_parsing(char* binary_masked);
 char binaryToHexa_conversion(char* binary_parsed);
+char* binaryToHexa_ET(char* resBinary, char* mask);

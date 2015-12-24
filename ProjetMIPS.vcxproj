@@ -112,6 +112,7 @@
     <ClCompile Include="binaryToHexa_concatenation.c" />
     <ClCompile Include="binaryToHexa_concatenation.cpp" />
     <ClCompile Include="binaryToHexa_conversion.c" />
+    <ClCompile Include="binaryToHexa_ET.c" />
     <ClCompile Include="binaryToHexa_mask.c" />
     <ClCompile Include="binaryToHexa_parsing.c" />
     <ClCompile Include="main.c" />
