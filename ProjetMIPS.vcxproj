@@ -116,11 +116,15 @@
     <ClCompile Include="binaryToHexa_parsing.c" />
     <ClCompile Include="compileFromText.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="tokenizingSource.c" />
     <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h" />
     <ClInclude Include="compileFromText.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="InstructionsMIPS.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

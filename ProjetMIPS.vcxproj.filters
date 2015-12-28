@@ -51,6 +51,9 @@
     <ClCompile Include="compileFromText.c">
       <Filter>Source Files\Compiler</Filter>
     </ClCompile>
+    <ClCompile Include="tokenizingSource.c">
+      <Filter>Source Files\Compiler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">
@@ -59,5 +62,10 @@
     <ClInclude Include="compileFromText.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="InstructionsMIPS.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
