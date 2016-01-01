@@ -1,3 +1,21 @@
 /* Instructions à implémenter dans le MIPS */
 
 /* Instructions de taille 32 bits */
+
+/* Instructions arithmétiques */
+ADD
+ADDI
+SUB
+MULT 
+DIV
+
+/* Instructions logiques */
+AND
+OR
+XOR
+
+/*Instructions de décalage */
+ROTR
+SSL
+SRL
+
