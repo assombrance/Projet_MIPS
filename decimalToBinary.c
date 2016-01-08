@@ -27,18 +27,12 @@ char* decimalToBinary(int decimal) {
 			res = decimal - (2 << powerMax);
 			powerMax++;
 		} while (res > 0);
-		powerMax--;
+
+		decimal -= (2 << powerMax);
+		
+		binary[powerMax] = '1';
 
 		res = 1;
-		decimal -= (1 << powerMax);
-		
-		/*initialisation de la chaîne des puissances*/
-		for (i = 0; i <= powerMax; i++) {
-			power[i] = '0';
-		}
-		power[i-powerMax] = '1';
-
-		i = 0;
 		powerMax = 0;
 	}
 	
