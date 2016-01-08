@@ -115,13 +115,16 @@
     <ClCompile Include="binaryToHexa_normalizeLength.c" />
     <ClCompile Include="binaryToHexa_parsing.c" />
     <ClCompile Include="compileFromText.c" />
+    <ClCompile Include="decimalToBinary.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="removeCommentary.c" />
     <ClCompile Include="tokenizingSource.c" />
     <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h" />
     <ClInclude Include="compileFromText.h" />
+    <ClInclude Include="decimalToBinary.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="InstructionsMIPS.txt" />

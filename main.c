@@ -1,5 +1,6 @@
 #include "binaryToHexa.h"
 #include "compileFromText.h"
+#include "decimalToBinary.h"
 
 int main(int argc, char* argv[]) {
 
@@ -12,8 +13,8 @@ int main(int argc, char* argv[]) {
 	res = binaryToHexa("1101001");
 	*/
 
-	/*Ouverture du fichier d'instructions */
-	tokenizingSource("InstructionsMIPS.txt");
+	/*test de la fonction de conversion decimal => binaire*/
+	decimalToBinary(52);
 
 	return 0;
 }

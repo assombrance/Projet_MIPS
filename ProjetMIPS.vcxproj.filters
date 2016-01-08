@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Compiler">
       <UniqueIdentifier>{c10c0d92-44d1-4517-b254-e94d7cfb529d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\decimalToBinary">
+      <UniqueIdentifier>{2e77b030-1be7-43af-9c7b-eaf81820a8a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c">
@@ -54,12 +57,21 @@
     <ClCompile Include="tokenizingSource.c">
       <Filter>Source Files\Compiler</Filter>
     </ClCompile>
+    <ClCompile Include="removeCommentary.c">
+      <Filter>Source Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="decimalToBinary.c">
+      <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="compileFromText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="decimalToBinary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
