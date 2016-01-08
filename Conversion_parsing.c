@@ -1,4 +1,4 @@
-#include "binaryToHexa.h"
+#include "Conversion.h"
 
 #define HALF_BYTE 4
 
@@ -8,7 +8,7 @@
    input : une chaine de x bits
    output : une chaine de 4 bits													*/
 
-char* binaryToHexa_parsing(char* binary_masked) {
+char* Conversion_parsing(char* binary_masked) {
 
 	unsigned int i = 0;
 	unsigned j = 0;

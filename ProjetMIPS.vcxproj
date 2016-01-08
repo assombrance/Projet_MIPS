@@ -109,11 +109,11 @@
   <ItemGroup>
     <ClCompile Include="binaryToDecimal.c" />
     <ClCompile Include="binaryToHexa.c" />
-    <ClCompile Include="binaryToHexa_conversion.c" />
-    <ClCompile Include="binaryToHexa_ET.c" />
-    <ClCompile Include="binaryToHexa_mask.c" />
-    <ClCompile Include="binaryToHexa_normalizeLength.c" />
-    <ClCompile Include="binaryToHexa_parsing.c" />
+    <ClCompile Include="Conversion_binaryHexa.c" />
+    <ClCompile Include="Conversion_ET.c" />
+    <ClCompile Include="Conversion_mask.c" />
+    <ClCompile Include="Conversion_normalizeLength.c" />
+    <ClCompile Include="Conversion_parsing.c" />
     <ClCompile Include="compileFromText.c" />
     <ClCompile Include="decimalToBinary.c" />
     <ClCompile Include="main.c" />
@@ -124,6 +124,7 @@
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h" />
     <ClInclude Include="compileFromText.h" />
+    <ClInclude Include="Conversion.h" />
     <ClInclude Include="decimalToBinary.h" />
   </ItemGroup>
   <ItemGroup>

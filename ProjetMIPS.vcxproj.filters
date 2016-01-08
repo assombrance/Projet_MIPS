@@ -36,21 +36,6 @@
     <ClCompile Include="binaryToHexa.c">
       <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
-    <ClCompile Include="binaryToHexa_conversion.c">
-      <Filter>Source Files\binaryToHexa</Filter>
-    </ClCompile>
-    <ClCompile Include="binaryToHexa_ET.c">
-      <Filter>Source Files\binaryToHexa</Filter>
-    </ClCompile>
-    <ClCompile Include="binaryToHexa_mask.c">
-      <Filter>Source Files\binaryToHexa</Filter>
-    </ClCompile>
-    <ClCompile Include="binaryToHexa_normalizeLength.c">
-      <Filter>Source Files\binaryToHexa</Filter>
-    </ClCompile>
-    <ClCompile Include="binaryToHexa_parsing.c">
-      <Filter>Source Files\binaryToHexa</Filter>
-    </ClCompile>
     <ClCompile Include="compileFromText.c">
       <Filter>Source Files\Compiler</Filter>
     </ClCompile>
@@ -63,6 +48,21 @@
     <ClCompile Include="decimalToBinary.c">
       <Filter>Source Files\decimalToBinary</Filter>
     </ClCompile>
+    <ClCompile Include="Conversion_mask.c">
+      <Filter>Source Files\binaryToHexa</Filter>
+    </ClCompile>
+    <ClCompile Include="Conversion_ET.c">
+      <Filter>Source Files\binaryToHexa</Filter>
+    </ClCompile>
+    <ClCompile Include="Conversion_binaryHexa.c">
+      <Filter>Source Files\binaryToHexa</Filter>
+    </ClCompile>
+    <ClCompile Include="Conversion_normalizeLength.c">
+      <Filter>Source Files\binaryToHexa</Filter>
+    </ClCompile>
+    <ClCompile Include="Conversion_parsing.c">
+      <Filter>Source Files\binaryToHexa</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">
@@ -72,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="decimalToBinary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Conversion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
