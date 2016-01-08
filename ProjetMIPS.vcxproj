@@ -125,7 +125,6 @@
     <ClInclude Include="binaryToHexa.h" />
     <ClInclude Include="compileFromText.h" />
     <ClInclude Include="Conversion.h" />
-    <ClInclude Include="decimalToBinary.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="InstructionsMIPS.txt" />

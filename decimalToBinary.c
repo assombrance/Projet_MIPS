@@ -1,4 +1,6 @@
-#include "decimalToBinary.h"
+#include "Conversion.h"
+
+#define MAX 100
 
 /*******************************************************
  * Algorithme                                          *
@@ -6,11 +8,16 @@
  * 2) Soustraire                                       *
  *******************************************************/
 
-int decimalToBinary(int decimal) {
+char* decimalToBinary(int decimal) {
 
 	int res = 1; /*juste pour res soit différent de 0*/
 	unsigned int powerMax = 0;
-	unsigned int power;
+	unsigned int i;
+	char* binary = NULL;
+	char* power = NULL;
+
+	binary = malloc(sizeof(*binary) * (MAX + 1));
+	power = malloc(sizeof(*power) * (MAX + 1));
 
 	/*Définir la puissance de 2 à calculer */
 
@@ -20,13 +27,24 @@ int decimalToBinary(int decimal) {
 			res = decimal - (2 << powerMax);
 			powerMax++;
 		} while (res > 0);
+		powerMax--;
 
 		res = 1;
-		decimal -= (2 << powerMax);
+		decimal -= (1 << powerMax);
+		
+		/*initialisation de la chaîne des puissances*/
+		for (i = 0; i <= powerMax; i++) {
+			power[i] = '0';
+		}
+		power[i-powerMax] = '1';
 
+		i = 0;
+		powerMax = 0;
 	}
 	
 
-	return res;
+
+
+	return binary;
 }
 

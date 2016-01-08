@@ -71,9 +71,6 @@
     <ClInclude Include="compileFromText.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="decimalToBinary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Conversion.h">
       <Filter>Header Files</Filter>
     </ClInclude>

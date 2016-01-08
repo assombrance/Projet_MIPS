@@ -1,6 +1,5 @@
-#include "binaryToHexa.h"
 #include "compileFromText.h"
-#include "decimalToBinary.h"
+#include "Conversion.h"
 
 int main(int argc, char* argv[]) {
 
