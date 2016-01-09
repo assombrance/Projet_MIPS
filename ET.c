@@ -3,7 +3,7 @@
 /* binaryToHexa_ET : permet de faire un ET logique entre chaque terme de deux chaînes
 	de caractères.                                                                   */
 
-char* Conversion_ET(char* resBinary, char* mask) {
+char* ET(char* resBinary, char* mask) {
 
 	char* res;
 	unsigned int i;

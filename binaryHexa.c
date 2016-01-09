@@ -1,6 +1,6 @@
 #include "Conversion.h"
 
-char Conversion_binaryHexa(char* binary_parsed) {
+char binaryHexa(char* binary_parsed) {
 
 	char resHexa;
 

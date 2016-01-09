@@ -30,7 +30,7 @@ char* binaryToHexa(char* binary) {
 	}
 
 	/* Normalisation de la taille de la chaîne à convertir */
-	binary_normalized = Conversion_normalizeLength(binary);
+	binary_normalized = normalizeLength(binary);
 
 	/* Parcours de la chaîne de gauche à droite pour la conversion*/
 	i = 0;
@@ -48,18 +48,18 @@ char* binaryToHexa(char* binary) {
 		resBinary[i] = '\0';
 
 		/* Création du masque */
-		mask = Conversion_mask(strlen(resBinary), i + 1 - 4, 4);
+		mask = Cmask(strlen(resBinary), i + 1 - 4, 4);
 		binary_masked = malloc(sizeof(*binary_masked) * (strlen(mask) + 1));
 		for (k = 0; k < strlen(mask); k++) {
 			binary_masked[k] = '0';
 		}
 		binary_masked[k] = '\0';
 		/* Application du masque à la chaîne de caractères */
-		binary_masked = Conversion_ET(resBinary, mask);
+		binary_masked = ET(resBinary, mask);
 		/* Reconnaissance des groupes de bits masqués */
-		binary_parsed = Conversion_parsing(binary_masked);
+		binary_parsed = parsing(binary_masked);
 
-		resHexa[j] = Conversion_binaryHexa(binary_parsed);
+		resHexa[j] = binaryHexa(binary_parsed);
 		resHexa[j + 1] = '\0';
 
 	}

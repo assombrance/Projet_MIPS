@@ -11,12 +11,13 @@
 char* binaryToHexa(char* binary);
 char* decimalToBinary(int decimal);
 
-char* Conversion_mask(unsigned int lenght, unsigned int offset, unsigned int nb);
-char* Conversion_parsing(char* binary_masked);
-char Conversion_binaryHexa(char* binary_parsed);
-char* Conversion_ET(char* resBinary, char* mask);
-char* Conversion_normalizeLength(char* binary);
+char* Cmask(unsigned int lenght, unsigned int offset, unsigned int nb);
+char* parsing(char* binary_masked);
+char binaryHexa(char* binary_parsed);
+char* ET(char* resBinary, char* mask);
+char* normalizeLength(char* binary);
 
-char* Conversion_decimalBinary(int decimal);
-char* Conversion_binaryAddition(char* binary_1, char* binary_2);
-char* Conversion_equalizingLength(char* binary_1, char* binary_2);
+char* decimalBinary(int decimal);
+char* binaryAddition(char* binary_1);
+char* equalizingLength(char* binary_1, char* binary_2);
+char* removeZero(char* binary);

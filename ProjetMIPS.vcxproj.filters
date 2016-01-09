@@ -48,29 +48,32 @@
     <ClCompile Include="decimalToBinary.c">
       <Filter>Source Files\decimalToBinary</Filter>
     </ClCompile>
-    <ClCompile Include="Conversion_mask.c">
+    <ClCompile Include="binaryHexa.c">
       <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
-    <ClCompile Include="Conversion_ET.c">
+    <ClCompile Include="ET.c">
       <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
-    <ClCompile Include="Conversion_binaryHexa.c">
+    <ClCompile Include="normalizeLength.c">
       <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
-    <ClCompile Include="Conversion_normalizeLength.c">
+    <ClCompile Include="parsing.c">
       <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
-    <ClCompile Include="Conversion_parsing.c">
-      <Filter>Source Files\binaryToHexa</Filter>
-    </ClCompile>
-    <ClCompile Include="Conversion_decimalBinary.c">
+    <ClCompile Include="binaryAddition.c">
       <Filter>Source Files\decimalToBinary</Filter>
     </ClCompile>
-    <ClCompile Include="Conversion_binaryAddition.c">
+    <ClCompile Include="decimalBinary.c">
       <Filter>Source Files\decimalToBinary</Filter>
     </ClCompile>
-    <ClCompile Include="Conversion_equalizingLength.c">
+    <ClCompile Include="equalizingLength.c">
       <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
+    <ClCompile Include="removeZero.c">
+      <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
+    <ClCompile Include="Cmask.c">
+      <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,10 +86,5 @@
     <ClInclude Include="Conversion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="InstructionsMIPS.txt">
-      <Filter>Source Files</Filter>
-    </Text>
   </ItemGroup>
 </Project>

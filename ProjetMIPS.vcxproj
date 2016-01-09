@@ -109,15 +109,16 @@
   <ItemGroup>
     <ClCompile Include="binaryToDecimal.c" />
     <ClCompile Include="binaryToHexa.c" />
-    <ClCompile Include="Conversion_binaryAddition.c" />
-    <ClCompile Include="Conversion_binaryHexa.c" />
-    <ClCompile Include="Conversion_decimalBinary.c" />
-    <ClCompile Include="Conversion_equalizingLength.c" />
-    <ClCompile Include="Conversion_ET.c" />
-    <ClCompile Include="Conversion_mask.c" />
-    <ClCompile Include="Conversion_normalizeLength.c" />
-    <ClCompile Include="Conversion_parsing.c" />
+    <ClCompile Include="binaryAddition.c" />
+    <ClCompile Include="binaryHexa.c" />
+    <ClCompile Include="decimalBinary.c" />
+    <ClCompile Include="equalizingLength.c" />
+    <ClCompile Include="ET.c" />
+    <ClCompile Include="Cmask.c" />
+    <ClCompile Include="normalizeLength.c" />
+    <ClCompile Include="parsing.c" />
     <ClCompile Include="compileFromText.c" />
+    <ClCompile Include="removeZero.c" />
     <ClCompile Include="decimalToBinary.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="removeCommentary.c" />
@@ -128,9 +129,6 @@
     <ClInclude Include="binaryToHexa.h" />
     <ClInclude Include="compileFromText.h" />
     <ClInclude Include="Conversion.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="InstructionsMIPS.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

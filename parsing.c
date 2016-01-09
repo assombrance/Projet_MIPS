@@ -8,7 +8,7 @@
    input : une chaine de x bits
    output : une chaine de 4 bits													*/
 
-char* Conversion_parsing(char* binary_masked) {
+char* parsing(char* binary_masked) {
 
 	unsigned int i = 0;
 	unsigned j = 0;

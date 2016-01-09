@@ -8,7 +8,7 @@ Le but de cette méthode est de généraliser binaryToHexa à toutes les tailles de
 chaîne.
 input : chaîne de caractère à normaliser										*/
 
-char* Conversion_normalizeLength(char* binary) {
+char* normalizeLength(char* binary) {
 
 	unsigned int length;
 	unsigned int r, offset;

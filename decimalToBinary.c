@@ -17,7 +17,8 @@ char* decimalToBinary(int decimal) {
 
 	if (decimal < 0) {
 		decimal_absValue = abs(decimal);
-		binary = Conversion_decimalBinary(decimal_absValue);
+		binary = decimalBinary(decimal_absValue);
+		binary = removeZero(binary);
 
 		/*Complément à deux*/
 		/*Inversion des bits*/
@@ -32,15 +33,15 @@ char* decimalToBinary(int decimal) {
 		binary[i] = '\0';
 
 		/*Addition de 1*/
-		if ()
+		binary = binaryAddition(binary);
 
 
 	}
 	else {
-		binary = Conversion_decimalBinary(decimal);
+		binary = decimalBinary(decimal);
 	}
 
-	binary = Conversion_normalizeLength(binary);
+	binary = normalizeLength(binary);
 
 
 	return binary;
