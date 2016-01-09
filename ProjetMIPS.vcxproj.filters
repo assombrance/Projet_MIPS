@@ -13,38 +13,77 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="Source Files\binaryToHexa">
+      <UniqueIdentifier>{89b02273-4590-41f0-a688-50ca2e5be728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Compiler">
+      <UniqueIdentifier>{c10c0d92-44d1-4517-b254-e94d7cfb529d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\decimalToBinary">
+      <UniqueIdentifier>{2e77b030-1be7-43af-9c7b-eaf81820a8a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="binaryToHexa.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="binaryToHexa_parsing.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="binaryToDecimal.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="binaryToHexa_mask.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="binaryToHexa.c">
+      <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
-    <ClCompile Include="binaryToHexa_conversion.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="compileFromText.c">
+      <Filter>Source Files\Compiler</Filter>
     </ClCompile>
-    <ClCompile Include="binaryToHexa_ET.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="tokenizingSource.c">
+      <Filter>Source Files\Compiler</Filter>
     </ClCompile>
-    <ClCompile Include="binaryToHexa_normalizeLength.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="removeCommentary.c">
+      <Filter>Source Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="decimalToBinary.c">
+      <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
+    <ClCompile Include="binaryHexa.c">
+      <Filter>Source Files\binaryToHexa</Filter>
+    </ClCompile>
+    <ClCompile Include="ET.c">
+      <Filter>Source Files\binaryToHexa</Filter>
+    </ClCompile>
+    <ClCompile Include="normalizeLength.c">
+      <Filter>Source Files\binaryToHexa</Filter>
+    </ClCompile>
+    <ClCompile Include="parsing.c">
+      <Filter>Source Files\binaryToHexa</Filter>
+    </ClCompile>
+    <ClCompile Include="binaryAddition.c">
+      <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
+    <ClCompile Include="decimalBinary.c">
+      <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
+    <ClCompile Include="equalizingLength.c">
+      <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
+    <ClCompile Include="removeZero.c">
+      <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
+    <ClCompile Include="Cmask.c">
+      <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="compileFromText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Conversion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

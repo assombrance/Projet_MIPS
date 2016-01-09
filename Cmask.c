@@ -1,11 +1,11 @@
-#include "binaryToHexa.h"
+#include "Conversion.h"
 
 /* binaryToHexa_mask : création d'un masque 
 	length : nombre de bits de masque
 	offset : bit de début de la série de "1", offset € [1;length]
 	nb : nombre de "1" dans le masque		*/
 
-char* binaryToHexa_mask(length, offset, nb) {
+char* Cmask(length, offset, nb) {
 
 	char *mask;
 	unsigned int i;
