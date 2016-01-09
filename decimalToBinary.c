@@ -1,6 +1,7 @@
 #include "Conversion.h"
 
-#define MAX 100
+/*Taille de la plus grande instruction 26 bits, soit 2^25*/
+#define SIZE_MAX 10 
 
 /*******************************************************
  * Algorithme                                          *
@@ -10,38 +11,32 @@
 
 char* decimalToBinary(int decimal) {
 
-	int res = 1; /*juste pour res soit différent de 0*/
-	unsigned int maximumPower = 0;
-	unsigned int i = 0;
+	unsigned int i;
 	char* binary = NULL;
-	int power[MAX];
-	int TEMP;
+	int power = SIZE_MAX;
+	int res = 0;
 
-	binary = malloc(sizeof(*binary) * (MAX + 1));
-	/* power = malloc(sizeof(*power) * (MAX + 1));*/
+	binary = malloc(sizeof(*binary) + 32);
 
+	for (i = 0; i <= SIZE_MAX; i++) {
 
-	/*Définir la puissance de 2 à calculer */
+		res = decimal - (1 << power);
 
-	while (decimal > 0) {
-
-		while (res > 0) {
-			res = decimal - (1 << maximumPower);
-			maximumPower++;
+		if (res >= 0) {
+			binary[i] = '1';
+			decimal = res;
 		}
-		maximumPower = maximumPower - 2; /*La boucle while fait 2 tours de trop... penser à revoir la condition d'arrêt*/
-		decimal -= (1 << maximumPower);
-		
-		/*tableau regroupant les puissances de deux successives*/
-		power[i] = maximumPower;
+		else {
+			binary[i] = '0';
+			res = decimal;
+		}
 
-		i++;
-		res = 1;
-		maximumPower = 0;
+		power--;
 	}
-	power[i] = '\0';
 
+	binary[i] = '\0';
 
+	binary = Conversion_normalizeLength(binary);
 
 	return binary;
 }

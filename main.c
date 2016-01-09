@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 	printf("Décalage de %d à gauche : %d \n", 6, 1 << 6);
 
 
-	decimalToBinary(17);
+	decimalToBinary(1487);
 
 	return 0;
 }
