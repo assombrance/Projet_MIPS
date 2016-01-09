@@ -1,9 +1,9 @@
-#include "binaryToHexa.h"
+#include "Conversion.h"
 
 /* binaryToHexa_ET : permet de faire un ET logique entre chaque terme de deux chaînes
 	de caractères.                                                                   */
 
-char* binaryToHexa_ET(char* resBinary, char* mask) {
+char* ET(char* resBinary, char* mask) {
 
 	char* res;
 	unsigned int i;
