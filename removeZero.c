@@ -30,6 +30,6 @@ char* removeZero(char* binary) {
 	binary[i] = '\0';
 	*/
 
-	return binary;
+	return TEMP;
 
 }

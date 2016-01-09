@@ -10,30 +10,32 @@ char* decimalToBinary(int decimal) {
 
 	int decimal_absValue;
 	char* binary = NULL;
+	char* binary_withoutZero = NULL;
 	unsigned int i;
 	int carry;
 
 	binary = malloc(sizeof(*binary) + 32);
+	binary_withoutZero = malloc(sizeof(*binary_withoutZero) + 32);
 
 	if (decimal < 0) {
 		decimal_absValue = abs(decimal);
 		binary = decimalBinary(decimal_absValue);
-		binary = removeZero(binary);
+		binary_withoutZero = removeZero(binary);
 
 		/*Complément à deux*/
 		/*Inversion des bits*/
-		for (i = 0; i < strlen(binary); i++) {
-			if (binary[i] == '0') {
-				binary[i] = '1';
+		for (i = 0; i < strlen(binary_withoutZero); i++) {
+			if (binary_withoutZero[i] == '0') {
+				binary_withoutZero[i] = '1';
 			}
 			else {
-				binary[i] = '0';
+				binary_withoutZero[i] = '0';
 			}
 		}
-		binary[i] = '\0';
+		binary_withoutZero[i] = '\0';
 
 		/*Addition de 1*/
-		binary = binaryAddition(binary);
+		binary = binaryAddition(binary_withoutZero);
 
 
 	}
