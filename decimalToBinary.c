@@ -1,8 +1,5 @@
 #include "Conversion.h"
 
-/*Taille de la plus grande instruction 26 bits, soit 2^25*/
-#define SIZE_MAX 10 
-
 /*******************************************************
  * Algorithme                                          *
  * 1) Trouver la puissance de 2 la plus proche         *
@@ -11,38 +8,40 @@
 
 char* decimalToBinary(int decimal) {
 
-	unsigned int i;
+	int decimal_absValue;
 	char* binary = NULL;
-	int power = SIZE_MAX;
-	int res = 0;
+	unsigned int i;
+	int carry;
 
 	binary = malloc(sizeof(*binary) + 32);
 
 	if (decimal < 0) {
-		fprintf(stderr," \n ************decimalToBinary_v2.0************* \n Sorry, this version does not work with negativ numbers \n Our developpers are on it. \n Thanks for your patience. \n");
-		exit(EXIT_FAILURE);
-	}
+		decimal_absValue = abs(decimal);
+		binary = Conversion_decimalBinary(decimal_absValue);
 
-	/*Ne fonctionne pas avec des nombres négatifs*/
-	for (i = 0; i <= SIZE_MAX; i++) {
-
-		res = decimal - (1 << power);
-
-		if (res >= 0) {
-			binary[i] = '1';
-			decimal = res;
+		/*Complément à deux*/
+		/*Inversion des bits*/
+		for (i = 0; i < strlen(binary); i++) {
+			if (binary[i] == '0') {
+				binary[i] = '1';
+			}
+			else {
+				binary[i] = '0';
+			}
 		}
-		else {
-			binary[i] = '0';
-			res = decimal;
-		}
+		binary[i] = '\0';
 
-		power--;
+		/*Addition de 1*/
+		if ()
+
+
 	}
-
-	binary[i] = '\0';
+	else {
+		binary = Conversion_decimalBinary(decimal);
+	}
 
 	binary = Conversion_normalizeLength(binary);
+
 
 	return binary;
 }

@@ -109,7 +109,10 @@
   <ItemGroup>
     <ClCompile Include="binaryToDecimal.c" />
     <ClCompile Include="binaryToHexa.c" />
+    <ClCompile Include="Conversion_binaryAddition.c" />
     <ClCompile Include="Conversion_binaryHexa.c" />
+    <ClCompile Include="Conversion_decimalBinary.c" />
+    <ClCompile Include="Conversion_equalizingLength.c" />
     <ClCompile Include="Conversion_ET.c" />
     <ClCompile Include="Conversion_mask.c" />
     <ClCompile Include="Conversion_normalizeLength.c" />

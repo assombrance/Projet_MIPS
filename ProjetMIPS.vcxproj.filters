@@ -63,6 +63,15 @@
     <ClCompile Include="Conversion_parsing.c">
       <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
+    <ClCompile Include="Conversion_decimalBinary.c">
+      <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
+    <ClCompile Include="Conversion_binaryAddition.c">
+      <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
+    <ClCompile Include="Conversion_equalizingLength.c">
+      <Filter>Source Files\decimalToBinary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">
