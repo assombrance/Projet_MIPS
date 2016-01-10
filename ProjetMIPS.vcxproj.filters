@@ -72,7 +72,7 @@
     <ClCompile Include="openSource.c">
       <Filter>Source Files\Compiler</Filter>
     </ClCompile>
-    <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c">
+    <ClCompile Include="convMnemonique.c">
       <Filter>Source Files\Compiler</Filter>
     </ClCompile>
   </ItemGroup>

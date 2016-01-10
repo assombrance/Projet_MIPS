@@ -6,4 +6,4 @@
 
 void openSource(FILE* source);
 FILE* removeCommentary(FILE* source);
-int convMnemo(char* ligne);
+void convMnemonique(char* ligne);

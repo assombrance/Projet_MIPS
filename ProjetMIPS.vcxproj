@@ -111,6 +111,7 @@
     <ClCompile Include="binaryToHexa.c" />
     <ClCompile Include="binaryAddition.c" />
     <ClCompile Include="binaryHexa.c" />
+    <ClCompile Include="convMnemonique.c" />
     <ClCompile Include="decimalBinary.c" />
     <ClCompile Include="equalizingLength.c" />
     <ClCompile Include="ET.c" />
@@ -123,7 +124,6 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="removeCommentary.c" />
     <ClCompile Include="openSource.c" />
-    <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h" />
