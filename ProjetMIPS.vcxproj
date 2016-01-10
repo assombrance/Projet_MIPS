@@ -109,16 +109,26 @@
   <ItemGroup>
     <ClCompile Include="binaryToDecimal.c" />
     <ClCompile Include="binaryToHexa.c" />
-    <ClCompile Include="binaryToHexa_conversion.c" />
-    <ClCompile Include="binaryToHexa_ET.c" />
-    <ClCompile Include="binaryToHexa_mask.c" />
-    <ClCompile Include="binaryToHexa_normalizeLength.c" />
-    <ClCompile Include="binaryToHexa_parsing.c" />
+    <ClCompile Include="binaryAddition.c" />
+    <ClCompile Include="binaryHexa.c" />
+    <ClCompile Include="decimalBinary.c" />
+    <ClCompile Include="equalizingLength.c" />
+    <ClCompile Include="ET.c" />
+    <ClCompile Include="Cmask.c" />
+    <ClCompile Include="normalizeLength.c" />
+    <ClCompile Include="parsing.c" />
+    <ClCompile Include="compileFromText.c" />
+    <ClCompile Include="removeZero.c" />
+    <ClCompile Include="decimalToBinary.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="removeCommentary.c" />
+    <ClCompile Include="tokenizingSource.c" />
     <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h" />
+    <ClInclude Include="compileFromText.h" />
+    <ClInclude Include="Conversion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
