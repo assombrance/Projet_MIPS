@@ -127,7 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h" />
-    <ClInclude Include="compileFromText.h" />
+    <ClInclude Include="CompileFromText.h" />
     <ClInclude Include="Conversion.h" />
   </ItemGroup>
   <ItemGroup>

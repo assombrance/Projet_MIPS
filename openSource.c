@@ -1,4 +1,4 @@
-#include "compileFromText.h"
+#include "CompileFromText.h"
 
 void openSource(FILE* source) {
 

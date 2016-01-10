@@ -22,22 +22,16 @@
     <Filter Include="Source Files\decimalToBinary">
       <UniqueIdentifier>{2e77b030-1be7-43af-9c7b-eaf81820a8a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Trash">
+      <UniqueIdentifier>{a34db3f3-fba5-4782-85fa-4c11e311946e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="binaryToDecimal.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="binaryToHexa.c">
       <Filter>Source Files\binaryToHexa</Filter>
-    </ClCompile>
-    <ClCompile Include="compileFromText.c">
-      <Filter>Source Files\Compiler</Filter>
-    </ClCompile>
-    <ClCompile Include="removeCommentary.c">
-      <Filter>Source Files\Compiler</Filter>
     </ClCompile>
     <ClCompile Include="decimalToBinary.c">
       <Filter>Source Files\decimalToBinary</Filter>
@@ -69,21 +63,30 @@
     <ClCompile Include="Cmask.c">
       <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
-    <ClCompile Include="openSource.c">
-      <Filter>Source Files\Compiler</Filter>
-    </ClCompile>
     <ClCompile Include="convMnemonique.c">
       <Filter>Source Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="openSource.c">
+      <Filter>Source Files\Trash</Filter>
+    </ClCompile>
+    <ClCompile Include="removeCommentary.c">
+      <Filter>Source Files\Trash</Filter>
+    </ClCompile>
+    <ClCompile Include="binaryToDecimal.c">
+      <Filter>Source Files\Trash</Filter>
+    </ClCompile>
+    <ClCompile Include="compileFromText.c">
+      <Filter>Source Files\Trash</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="compileFromText.h">
+    <ClInclude Include="Conversion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Conversion.h">
+    <ClInclude Include="CompileFromText.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,4 @@
-#include "compileFromText.h"
+#include "CompileFromText.h"
 
 /*removeCommentary : permet d'enlever les commentaires d'un fichier assembleur *
  *pour la compilation.                                                         *

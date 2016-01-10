@@ -1,4 +1,4 @@
-#include "compileFromText.h"
+#include "CompileFromText.h"
 #include "Conversion.h"
 
 int main(int argc, char* argv[]) {
@@ -8,10 +8,12 @@ int main(int argc, char* argv[]) {
 	unsigned int i = 0;
 	unsigned int j = 0;
 	char* BUFFER = NULL;
+	char* res = NULL;
 
 	source = fopen("source.txt", "r");
 
 	BUFFER = malloc(sizeof(BUFFER) * 32);
+	res = malloc(sizeof(*BUFFER) * 32);
 
 	if (source == NULL) {
 		fprintf(stderr, "Unable to open one of the file \n");
@@ -25,7 +27,7 @@ int main(int argc, char* argv[]) {
 			espace : 32
 		*/
 	
-	for (j = 0; j <= 100; i++) {
+	for (j = 0; j <= 100; j++) {
 		do {
 			currentCarac = fgetc(source);
 			printf("%d", currentCarac);
@@ -34,6 +36,8 @@ int main(int argc, char* argv[]) {
 		} while (currentCarac != '\n');
 
 		BUFFER[i] = '\0';
+
+		res = convMnemonique(BUFFER);
 	
 		BUFFER = malloc(sizeof(*BUFFER) * 32);
 		i = 0;

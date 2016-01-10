@@ -1,13 +1,11 @@
-	#Test d'une fonction de lecture
-eval:
-        move $v0, $a0
+        SW $v0, $a0
 	#Commentaire
-        li   $a1, 1
-        sub  $v0, $v0, $a1
-        li   $a1, 3
-        mul  $v0, $v0, $a1
-        move $a1, $a0
-        move $a2, #2
-        mul  $a1, $a1, $a2
-        add  $v0, $v0, $a1
-        jr $ra
+	    ADD   $a1, 1
+        ADDI  $v0, $v0, $a1
+        SUB  $a1, 3
+        MULT  $v0, $v0, $a1
+        DIV $a1, $a0
+        AND $a2, #2
+        OR  $a1, $a1, $a2
+        XOR  $v0, $v0, $a1
+        J $ra
