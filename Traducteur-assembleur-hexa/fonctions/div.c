@@ -1,4 +1,4 @@
-#include "div.h"
+#include "fonctionsHexa.h"
 
 char* divHexa(char* instruction) {
 	int i=0,rs,rt,rd;
@@ -15,7 +15,7 @@ char* divHexa(char* instruction) {
 	}
 	rs = atoi(instruction[i]); //enregistrement de rs
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
 		rs = 10*rs;
 		rs += atoi(instruction[i]);
 		i++;
@@ -25,7 +25,7 @@ char* divHexa(char* instruction) {
 	}
 	rt = atoi(instruction[i]); //enregistrement de rt
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
 		rt = 10*rt;
 		rt+ = atoi(instruction[i]);
 		i++;

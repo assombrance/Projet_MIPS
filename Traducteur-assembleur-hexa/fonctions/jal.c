@@ -1,4 +1,4 @@
-#include "jal.h"
+#include "fonctionsHexa.h"
 
 char* jalHexa(char* instruction) {
 	int i=0,ind;
@@ -15,7 +15,7 @@ char* jalHexa(char* instruction) {
 	}
 	ind = atoi(instruction[i]); //enregistrement de ind
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
+	while((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
 		ind = 10*ind;
 		ind += atoi(instruction[i]);
 		i++;

@@ -1,4 +1,4 @@
-#include "beq.h"
+#include "fonctionsHexa.h"
 
 char* beqHexa(char* instruction) {
 	int i=0,rs,rt,off;

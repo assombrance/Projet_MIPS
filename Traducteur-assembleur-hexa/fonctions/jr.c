@@ -1,4 +1,4 @@
-#include "jr.h"
+#include "fonctionsHexa.h"
 
 char* jrHexa(char* instruction) {
 	int i=0,rs;
@@ -15,7 +15,7 @@ char* jrHexa(char* instruction) {
 	}
 	rs = atoi(instruction[i]); //enregistrement de rs
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
+	while((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
 		rs = 10*rs;
 		rs += atoi(instruction[i]);
 		i++;
