@@ -3,17 +3,44 @@
 
 int main(int argc, char* argv[]) {
 
-	/* Conversion de chaine binaire => chaine hexadécimale*/
-	/*
-	char* res;
+	FILE* source = NULL;
+	int currentCarac = 0;
+	unsigned int i = 0;
+	unsigned int j = 0;
+	char* BUFFER = NULL;
 
-	res = malloc(sizeof(*res) + 6);
+	source = fopen("source.txt", "r");
 
-	res = binaryToHexa("1101001");
-	*/
+	BUFFER = malloc(sizeof(BUFFER) * 32);
 
-	/*test de la fonction de conversion decimal => binaire*/
+	if (source == NULL) {
+		fprintf(stderr, "Unable to open one of the file \n");
+		exit(EXIT_FAILURE);
+	}
 	
+	
+		/*Lecture ligne par ligne et écriture dans une chaine de caractères*/
+		/*	# : 35
+			tabulation : 9
+			espace : 32
+		*/
+	
+	for (j = 0; j <= 100; i++) {
+		do {
+			currentCarac = fgetc(source);
+			printf("%d", currentCarac);
+			BUFFER[i] = currentCarac;
+			i++;
+		} while (currentCarac != '\n');
+
+		BUFFER[i] = '\0';
+	
+		BUFFER = malloc(sizeof(*BUFFER) * 32);
+		i = 0;
+	}
+		/*Filtrer la mnémonique présente dans la ligne */
+	
+	fclose(source);
 
 
 	return 0;

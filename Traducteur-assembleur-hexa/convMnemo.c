@@ -1,21 +1,24 @@
+/* #include "compileFromText.h"
+
 #define MAX_SIZE 4
 
-/*
-int convMnemo(char* ligne) {
- //convertit une ligne en son code hexadécimal
+void convMnemo(char* ligne) {
+
   int pointeur=0; //pointeur pour lire la ligne
   int i=0,resultat;
   char* operation[MAX_SIZE];
-  /*
-  while (...) {//va au premier non espace
+  
+  
+  while (...) {
     pointeur++;
   }
 
-  while (...i) {//lit le premier mot
+  while (...i) {
     operation[i] = ligne[pointeur];
     i++;
     pointeur++;
   }
+  
 
   if (operation == "ADD") {
     resultat = add(ligne);
@@ -54,7 +57,7 @@ int convMnemo(char* ligne) {
   } else if (operation == "BEQ") {
     resultat = beq(ligne);
   } else if (operation == "BNE") {
-    resultat = (ligne);
+    resultat = bne(ligne);
   } else if (operation == "BGTZ") {
     resultat = bgtz(ligne);
   } else if (operation == "BLEZ") {
@@ -66,12 +69,10 @@ int convMnemo(char* ligne) {
   } else if (operation == "JR") {
     resultat = jr(ligne);
   } else {
-    printf("Mnémonique non reconnue \n");
-    return -1;
+    fprintf(stderr, "Mnémonique non reconnue \n");
+    exit(EXIT_FAILURE);
   }
 
   }
 
   */
-
-

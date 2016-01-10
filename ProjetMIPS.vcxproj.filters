@@ -24,9 +24,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,9 +34,6 @@
       <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
     <ClCompile Include="compileFromText.c">
-      <Filter>Source Files\Compiler</Filter>
-    </ClCompile>
-    <ClCompile Include="tokenizingSource.c">
       <Filter>Source Files\Compiler</Filter>
     </ClCompile>
     <ClCompile Include="removeCommentary.c">
@@ -75,6 +69,12 @@
     <ClCompile Include="Cmask.c">
       <Filter>Source Files\binaryToHexa</Filter>
     </ClCompile>
+    <ClCompile Include="openSource.c">
+      <Filter>Source Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c">
+      <Filter>Source Files\Compiler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">
@@ -86,5 +86,10 @@
     <ClInclude Include="Conversion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="source.txt">
+      <Filter>Source Files\Compiler</Filter>
+    </Text>
   </ItemGroup>
 </Project>
