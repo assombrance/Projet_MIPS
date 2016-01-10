@@ -1,89 +1,90 @@
 #include "compileFromText.h"
 
-#define MAX_SIZE 4
+char* convMnemonique(char* ligne) {
 
-void convMnemo(char* ligne) {
+	unsigned int i = 0;
+	char* operation[MAX_SIZE_MNEMO];
+	char* res = NULL;
 
-	int pointeur = 0; //pointeur pour lire la ligne
-	int i = 0, resultat;
-	char* operation[MAX_SIZE];
+	res = malloc(sizeof(*res) * 32);
 
 
-	if (operation == "ADD") {
-		resultat = add(ligne);
+	if (operation == "\tADD") {
+		res = addHexa(ligne);
 	}
-	else if (operation == "ADDI") {
-		resultat = addi(ligne);
+	else if (operation == "\tADDI") {
+		res = addiHexa(ligne);
 	}
-	else if (operation == "SUB") {
-		resultat = sub(ligne);
+	else if (operation == "\tSUB") {
+		res = subHexa(ligne);
 	}
-	else if (operation == "MULT") {
-		resultat = mult(ligne);
+	else if (operation == "\tMULT") {
+		res = multHexa(ligne);
 	}
-	else if (operation == "DIV") {
-		resultat = mult(ligne);
+	else if (operation == "\tDIV") {
+		res = divHexa(ligne);
 	}
-	else if (operation == "AND") {
-		resultat = and (ligne);
+	else if (operation == "\tAND") {
+		res = andHexa(ligne);
 	}
-	else if (operation == "OR") {
-		resultat = or (ligne);
+	else if (operation == "\tOR") {
+		res = orHexa(ligne);
 	}
-	else if (operation == "XOR") {
-		resultat = xor (ligne);
+	else if (operation == "\tXOR") {
+		res = xorHexa(ligne);
 	}
-	else if (operation == "ROTR") {
-		resultat = rotr(ligne);
+	else if (operation == "\tROTR") {
+		res = rotrHexa(ligne);
 	}
-	else if (operation == "SLL") {
-		resultat = sll(ligne);
+	else if (operation == "\tSLL") {
+		res = sllHexa(ligne);
 	}
-	else if (operation == "SRL") {
-		resultat = srl(ligne);
+	else if (operation == "\tSRL") {
+		res = srlHexa(ligne);
 	}
-	else if (operation == "SLT") {
-		resultat = slt(ligne);
+	else if (operation == "\tSLT") {
+		res = sltHexa(ligne);
 	}
-	else if (operation == "LW") {
-		resultat = lw(ligne);
+	else if (operation == "\tLW") {
+		res = lwHexa(ligne);
 	}
-	else if (operation == "SW") {
-		resultat = sw(ligne);
+	else if (operation == "\tSW") {
+		res = swHexa(ligne);
 	}
-	else if (operation == "LUI") {
-		resultat = lui(ligne);
+	else if (operation == "\tLUI") {
+		res = luiHexa(ligne);
 	}
-	else if (operation == "MFHI") {
-		resultat = mfhi(ligne);
+	else if (operation == "\tMFHI") {
+		res = mfhiHexa(ligne);
 	}
-	else if (operation == "MFLO") {
-		resultat = mflo(ligne);
+	else if (operation == "\tMFLO") {
+		res = mfloHexa(ligne);
 	}
-	else if (operation == "BEQ") {
-		resultat = beq(ligne);
+	else if (operation == "\tBEQ") {
+		res = beqHexa(ligne);
 	}
-	else if (operation == "BNE") {
-		resultat = bne(ligne);
+	else if (operation == "\tBNE") {
+		res = bneHexa(ligne);
 	}
-	else if (operation == "BGTZ") {
-		resultat = bgtz(ligne);
+	else if (operation == "\tBGTZ") {
+		res = bgtzHexa(ligne);
 	}
-	else if (operation == "BLEZ") {
-		resultat = blez(ligne);
+	else if (operation == "\tBLEZ") {
+		res = blezHexa(ligne);
 	}
-	else if (operation == "J") {
-		resultat = j(ligne);
+	else if (operation == "\tJ") {
+		res = jHexa(ligne);
 	}
-	else if (operation == "JAL") {
-		resultat = jal(ligne);
+	else if (operation == "\tJAL") {
+		res = jalHexa(ligne);
 	}
-	else if (operation == "JR") {
-		resultat = jr(ligne);
+	else if (operation == "\tJR") {
+		res = jrHexa(ligne);
 	}
 	else {
 		fprintf(stderr, "Mnémonique non reconnue \n");
-		exit(EXIT_FAILURE);
 	}
+
+	return res;
 
 }
