@@ -1,8 +1,18 @@
-#include "addi.h"
+#include "fonctionsHexa.h"
 
 char* addIHexa(char* instruction) {
 	int i=0,rs,rt,imm;
-	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],imm_w[6],rs_b[7],rt_b[7],imm_b[17];
+	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],imm_w[6];
+
+	char* fin = NULL;
+	char* rs_b = NULL;
+	char* rs_t = NULL;
+	char* imm_b = NULL;
+	rs_b = malloc(sizeof(rs_b) * 7);
+	rt_b = malloc(sizeof(rs_b) * 7);
+	imm_b = malloc(sizeof(rs_b) * 7);
+	fin = malloc(sizeof(rs_b) * 32);
+
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au add
 		i++;
 	}
@@ -14,7 +24,7 @@ char* addIHexa(char* instruction) {
 	}
 	rt = atoi(instruction[i]); //enregistrement de rt
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
 		rt = 10*rt;
 		rt += atoi(instruction[i]);
 		i++;
@@ -24,7 +34,7 @@ char* addIHexa(char* instruction) {
 	}
 	rs = atoi(instruction[i]; //enregistrement de rs
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
 		rs = 10*rs;
 		rs += atoi(instruction[i]);
 		i++;
@@ -34,7 +44,7 @@ char* addIHexa(char* instruction) {
 	}
 	imm = atoi(instruction[i]; //enregistrement de imm
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
 		imm = 10*imm;
 		imm+ = atoi(instruction[i]);
 		i++;

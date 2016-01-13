@@ -1,40 +1,33 @@
-#include "mfhi.h"
+#include "fonctionsHexa.h"
 
 char* mfhiHexa(char* instruction) {
-	int i=0,rs,imm,rt;
-	char binaire[32],hexadecimal[8],imm_w[6],rt_w[3],imm_b[17],rt_b[7];
+	int i=0,rs,rd;
+	char* fin;
+	char binaire[32],hexadecimal[8],rd_w[3];
+	char* rd_b;
+	rd_b = malloc(sizeof(*rd_b)*7);
+	fin = malloc(sizeof(*fin)*32);
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au mfhi
 		i++;
 	}
 	while((instruction[i]!=" ")&&(instruction[i]!="%t")){ //passage de l'mfhi
 		i++;
 	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage à la première opérande (rt)
+	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage à la première opérande (rd)
 		i++;
 	}
-	rt = atoi(instruction[i]); //enregistrement de rt
+	rd = atoi(instruction[i]); //enregistrement de rd
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
-		rt = 10*rt;
-		rt += atoi(instruction[i]);
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
+		rd = 10*rd;
+		rd += atoi(instruction[i]);
 		i++;
 	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")||(instruction[i]==",")){ //passage à la deuxième opérande (imm)
-		i++;
-	}
-	imm = atoi(instruction[i]; //enregistrement de imm
-	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
-		imm = 10*imm;
-		imm+ = atoi(instruction[i]);
-		i++;
-	}
-	sprintf(imm_w,"%d",imm);
-	sprintf(rt_w,"%d",rt);
-	imm_b = decimalToBinary(imm_w);
-	rt_b = decimalToBinary(rt_w);
-	strcpy(binaire, "10001100000");
-	strcat(binaire,strcat(rt_b,imm_b));
+	sprintf(rd_w,"%d",rd);
+	rd_b = decimalToBinary(rd_w);
+	strcpy(binaire, "0000000000000000");
+	strcpy(fin, "00000010000");
+	strcat(binaire,strcat(rd_b,fin));
 	hexadecimal = binaryToHexa(binaire);
 	return hexadecimal;
 }

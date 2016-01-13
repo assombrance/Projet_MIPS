@@ -1,8 +1,17 @@
-#include "bne.h"
+#include "fonctionsHexa.h"
 
 char* bneHexa(char* instruction) {
 	int i=0,rs,rt,off;
-	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],off_w[6],rs_b[6],rt_b[6],off_b[17];
+	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],off_w[6];
+
+	char* rs_b = NULL;
+	char* rt_b = NULL;
+	char* off_b = NULL;
+
+	rs_b = malloc(sizeof(*rs_b) * 7);
+	rt_b = malloc(sizeof(*rs_b) * 7);
+	off_b = malloc(sizeof(*rs_b) * 17);
+
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au add
 		i++;
 	}
@@ -14,7 +23,7 @@ char* bneHexa(char* instruction) {
 	}
 	rt = atoi(instruction[i]); //enregistrement de rt
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
 		rt = 10*rt;
 		rt += atoi(instruction[i]);
 		i++;
@@ -24,7 +33,7 @@ char* bneHexa(char* instruction) {
 	}
 	rs = atoi(instruction[i]); //enregistrement de rs
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
 		rs = 10*rs;
 		rs += atoi(instruction[i]);
 		i++;
@@ -34,7 +43,7 @@ char* bneHexa(char* instruction) {
 	}
 	off = atoi(instruction[i]); //enregistrement de off
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
+	while((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
 		off = 10*off;
 		off+ = atoi(instruction[i]);
 		i++;

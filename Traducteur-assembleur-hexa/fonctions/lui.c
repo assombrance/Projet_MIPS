@@ -1,8 +1,14 @@
-#include "lui.h"
+#include "fonctionsHexa.h"
 
 char* luiHexa(char* instruction) {
 	int i=0,rs,imm,rt;
-	char binaire[32],hexadecimal[8],imm_w[6],rt_w[3],imm_b[17],rt_b[7];
+	char binaire[32],hexadecimal[8],imm_w[6],rt_w[3];
+
+	char* imm_b = NULL;
+	char* rt_b = NULL;
+	imm_b = malloc(sizeof(*imm_b) * 27);
+	rt_b = malloc(sizeof(*rt_b) * 7);
+	
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au lui
 		i++;
 	}
@@ -14,7 +20,7 @@ char* luiHexa(char* instruction) {
 	}
 	rt = atoi(instruction[i]); //enregistrement de rt
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
 		rt = 10*rt;
 		rt += atoi(instruction[i]);
 		i++;
@@ -24,7 +30,7 @@ char* luiHexa(char* instruction) {
 	}
 	imm = atoi(instruction[i]; //enregistrement de imm
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
+	while((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
 		imm = 10*imm;
 		imm+ = atoi(instruction[i]);
 		i++;

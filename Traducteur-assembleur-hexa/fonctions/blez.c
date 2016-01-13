@@ -1,9 +1,17 @@
-#include "blez.h"
+#include "fonctionsHexa.h"
 
 char* blezHexa(char* instruction) {
 	int i=0,rs,off;
 	char* special;
-	char binaire[32],hexadecimal[8],rs_w[3],off_w[6],rs_b[7],off_b[17];
+	char binaire[32],hexadecimal[8],rs_w[3],off_w[6];
+
+	char* rs_b = NULL;
+	char* off_b = NULL;
+
+	rs_b = malloc(sizeof(*rs_b) * 7);
+	off_b = malloc(sizeof(*rs_b) * 17);
+	fin = malloc(sizeof(*special)*32);
+
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au add
 		i++;
 	}
@@ -15,7 +23,7 @@ char* blezHexa(char* instruction) {
 	}
 	rs = atoi(instruction[i]); //enregistrement de rs
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
 		rs = 10*rs;
 		rs += atoi(instruction[i]);
 		i++;
@@ -25,7 +33,7 @@ char* blezHexa(char* instruction) {
 	}
 	off = atoi(instruction[i]); //enregistrement de off
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
+	while((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
 		off = 10*off;
 		off+ = atoi(instruction[i]);
 		i++;

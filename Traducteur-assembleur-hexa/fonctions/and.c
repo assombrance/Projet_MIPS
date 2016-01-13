@@ -1,9 +1,19 @@
-#include "and.h"
+#include "fonctionsHexa.h"
 
 char* andHexa(char* instruction) {
 	int i=0,rs,rt,rd;
 	char* fin;
 	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],rd_w[3],rs_b[7],rt_b[7],rd_b[7];
+
+	char* rs_b = NULL;
+	char* rt_b = NULL;
+	char* rd_b = NULL;
+	
+	rs_b = malloc(sizeof(*rs_b) * 7);
+	rt_b = malloc(sizeof(*rs_b) * 7);
+	rd_b = malloc(sizeof(*rs_b) * 7);
+	fin = malloc(sizeof(*fin)*32);
+
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au and
 		i++;
 	}
@@ -15,7 +25,7 @@ char* andHexa(char* instruction) {
 	}
 	rd = atoi(instruction[i]); //enregistrement de rd
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")||(instruction[i]!=",")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")||(instruction[i]!=",")){
 		rd = 10*rd;
 		rd += atoi(instruction[i]);
 		i++;
@@ -25,7 +35,7 @@ char* andHexa(char* instruction) {
 	}
 	rs = atoi(instruction[i]); //enregistrement de rs
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
 		rs = 10*rs;
 		rs += atoi(instruction[i]);
 		i++;
@@ -35,7 +45,7 @@ char* andHexa(char* instruction) {
 	}
 	rt = atoi(instruction[i]); //enregistrement de rt
 	i++;
-	if (instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
+	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
 		rt = 10*rt;
 		rt+ = atoi(instruction[i]);
 		i++;
