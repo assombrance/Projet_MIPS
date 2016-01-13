@@ -1,6 +1,6 @@
-#include "compileFromText.h"
+#include "CompileFromText.h"
 
-void tokenizingSource(FILE* source) {
+void openSource(FILE* source) {
 
 	/*Toujours initialiser les pointeurs*/
 	FILE* buffer = NULL;

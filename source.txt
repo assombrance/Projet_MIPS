@@ -1,0 +1,11 @@
+        SW $v0, $a0
+	#Commentaire
+	    ADD   $a1, 1
+        ADDI  $v0, $v0, $a1
+        SUB  $a1, 3
+        MULT  $v0, $v0, $a1
+        DIV $a1, $a0
+        AND $a2, #2
+        OR  $a1, $a1, $a2
+        XOR  $v0, $v0, $a1
+        J $ra

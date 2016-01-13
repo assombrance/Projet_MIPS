@@ -111,6 +111,7 @@
     <ClCompile Include="binaryToHexa.c" />
     <ClCompile Include="binaryAddition.c" />
     <ClCompile Include="binaryHexa.c" />
+    <ClCompile Include="convMnemonique.c" />
     <ClCompile Include="decimalBinary.c" />
     <ClCompile Include="equalizingLength.c" />
     <ClCompile Include="ET.c" />
@@ -122,13 +123,15 @@
     <ClCompile Include="decimalToBinary.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="removeCommentary.c" />
-    <ClCompile Include="tokenizingSource.c" />
-    <ClCompile Include="traducteur-assembleur-hexa\convMnemo.c" />
+    <ClCompile Include="openSource.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h" />
-    <ClInclude Include="compileFromText.h" />
+    <ClInclude Include="CompileFromText.h" />
     <ClInclude Include="Conversion.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="source.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
