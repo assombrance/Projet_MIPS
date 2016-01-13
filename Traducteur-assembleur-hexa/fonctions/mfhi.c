@@ -3,7 +3,10 @@
 char* mfhiHexa(char* instruction) {
 	int i=0,rs,rd;
 	char* fin;
-	char binaire[32],hexadecimal[8],rd_w[3],rd_b[7];
+	char binaire[32],hexadecimal[8],rd_w[3];
+	char* rd_b;
+	rd_b = malloc(sizeof(*rd_b)*7);
+	fin = malloc(sizeof(*fin)*32);
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au mfhi
 		i++;
 	}

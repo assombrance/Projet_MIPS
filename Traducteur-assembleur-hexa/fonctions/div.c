@@ -3,7 +3,15 @@
 char* divHexa(char* instruction) {
 	int i=0,rs,rt,rd;
 	char* fin;
-	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],rs_b[7],rt_b[7];
+	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3];
+
+	char* rs_b = NULL;
+	char* rt_b = NULL;
+
+	rs_b = malloc(sizeof(*rs_b) * 7);
+	rt_b = malloc(sizeof(*rs_b) * 7);
+	fin = malloc(sizeof(*fin)*32);
+
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au div
 		i++;
 	}

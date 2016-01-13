@@ -3,6 +3,11 @@
 char* lwHexa(char* instruction) {
 	int i=0,rs,off,rt;
 	char binaire[32],hexadecimal[8],off_w[6],rt_w[3],off_b[17],rt_b[7];
+	char* off_b = NULL;
+	char* rt_b = NULL;
+	off_b = malloc(sizeof(*off_b) * 17);
+	rt_b = malloc(sizeof(*rt_b) * 7);
+
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au lw
 		i++;
 	}

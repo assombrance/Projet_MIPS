@@ -3,7 +3,15 @@
 char* bgtzHexa(char* instruction) {
 	int i=0,rs,off;
 	char* special;
-	char binaire[32],hexadecimal[8],rs_w[3],off_w[7],rs_b[7],off_b[17];
+	char binaire[32],hexadecimal[8],rs_w[3],off_w[7];
+
+	char* rs_b = NULL;
+	char* off_b = NULL;
+
+	rs_b = malloc(sizeof(*rs_b) * 7);
+	off_b = malloc(sizeof(*rs_b) * 17);
+	fin = malloc(sizeof(*special)*32);
+
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au add
 		i++;
 	}

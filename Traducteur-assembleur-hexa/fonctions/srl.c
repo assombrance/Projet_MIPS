@@ -3,7 +3,14 @@
 char* srlHexa(char* instruction) {
 	int i=0,rt,sa,rd,binaireInt;
 	char* fin;
-	char binaire[32],hexadecimal[8],rt_w[3],sa_w[3],rd_w[3],rt_b[7],sa_b[7],rd_b[7];
+	char binaire[32],hexadecimal[8],rt_w[3],sa_w[3],rd_w[3];
+	char* sa_b;
+	sa_b = malloc(sizeof(*sa_b)*7);
+	char* rd_b;
+	rd_b = malloc(sizeof(*rd_b)*7);
+	char* rt_b;
+	rt_b = malloc(sizeof(*rt_b)*7);
+	fin = malloc(sizeof(*fin)*32);
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au srl
 		i++;
 	}

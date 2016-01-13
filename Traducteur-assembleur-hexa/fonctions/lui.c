@@ -2,7 +2,13 @@
 
 char* luiHexa(char* instruction) {
 	int i=0,rs,imm,rt;
-	char binaire[32],hexadecimal[8],imm_w[6],rt_w[3],imm_b[17],rt_b[7];
+	char binaire[32],hexadecimal[8],imm_w[6],rt_w[3];
+
+	char* imm_b = NULL;
+	char* rt_b = NULL;
+	imm_b = malloc(sizeof(*imm_b) * 27);
+	rt_b = malloc(sizeof(*rt_b) * 7);
+	
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au lui
 		i++;
 	}

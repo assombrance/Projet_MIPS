@@ -2,7 +2,17 @@
 
 char* addIHexa(char* instruction) {
 	int i=0,rs,rt,imm;
-	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],imm_w[6],rs_b[7],rt_b[7],imm_b[17];
+	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],imm_w[6];
+
+	char* fin = NULL;
+	char* rs_b = NULL;
+	char* rs_t = NULL;
+	char* imm_b = NULL;
+	rs_b = malloc(sizeof(rs_b) * 7);
+	rt_b = malloc(sizeof(rs_b) * 7);
+	imm_b = malloc(sizeof(rs_b) * 7);
+	fin = malloc(sizeof(rs_b) * 32);
+
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au add
 		i++;
 	}

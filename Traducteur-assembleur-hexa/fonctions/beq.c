@@ -2,7 +2,15 @@
 
 char* beqHexa(char* instruction) {
 	int i=0,rs,rt,off;
-	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],off_w[6],rs_b[7],rt_b[7],off_b[17];
+	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],off_w[6];
+
+	char* rs_b = NULL;
+	char* rt_b = NULL;
+	char* off_b = NULL;
+
+	rs_b = malloc(sizeof(*rs_b) * 7);
+	rt_b = malloc(sizeof(*rs_b) * 7);
+	off_b = malloc(sizeof(*rs_b) * 17);
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au add
 		i++;
 	}

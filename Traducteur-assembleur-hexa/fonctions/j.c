@@ -2,7 +2,12 @@
 
 char* jHexa(char* instruction) {
 	int i=0,ind;
-	char binaire[32],hexadecimal[8],ind_w[9],ind_b[27];
+	char binaire[32],hexadecimal[8],ind_w[9];
+
+	char* ind_b = NULL;
+
+	ind_b = malloc(sizeof(*rs_b) * 27);
+	
 	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au add
 		i++;
 	}
