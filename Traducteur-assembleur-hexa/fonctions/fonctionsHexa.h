@@ -1,6 +1,7 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include"Convertion.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "Convertion.h"
 
 char* addHexa(char*);
 char* addiHexa(char*);
