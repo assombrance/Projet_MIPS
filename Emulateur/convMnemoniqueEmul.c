@@ -37,7 +37,7 @@ char* convMnemonique(char* ligne,char *memoire,int32_t *registres) {
 
 	free(operation);
 
-
+	/*
 	if (operation == "add") {
 		res = addHexa(ligne, *memoire, *registres);
 	}
@@ -113,7 +113,7 @@ char* convMnemonique(char* ligne,char *memoire,int32_t *registres) {
 	else {
 		fprintf(stderr, "Mnémonique non reconnue \n");
 	}
-
+	*/
 	return res;
 
 }
