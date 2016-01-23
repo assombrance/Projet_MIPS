@@ -1,61 +1,52 @@
-#include "fonctionsHexa.h"
+#include "fonctionsEmul.h"
+#include "bibliotheque.h"
 
-char* sllHexa(char* instruction) {
-	int i=0,rt,sa,rd,binaireInt;
-	char* fin;
-	char binaire[32],hexadecimal[8],rt_w[3],sa_w[3],rd_w[3];
-	char* rd_b;
-	rd_b = malloc(sizeof(*rd_b)*7);
-	char* sa_b;
-	sa_b = malloc(sizeof(*sa_b)*7);
-	char* rt_b;
-	rt_b = malloc(sizeof(*rt_b)*7);
-	fin = malloc(sizeof(*fin)*32);
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au sll
+void addEmul(char* instruction, char* memoire, int32_t* registres) {
+	
+	int32_t rt, sa, rd;
+	int i=0,j=0, sa_instruction, rt_instruction, rd_instruction;
+	char rt_w[3], sa_w[3], rd_w[3];
+
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage au add
 		i++;
 	}
-	while((instruction[i]!=" ")&&(instruction[i]!="%t")){ //passage de l'sll
+	while ((instruction[i] != ' ' ) && (instruction[i] != '\t')) { //passage de l'add
 		i++;
 	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage à la première opérande (rd)
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage à la première opérande (rd)
 		i++;
 	}
-	rd = atoi(instruction[i]); //enregistrement de rd
-	i++;
-	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")&&(instruction[i]!="#")){
-		rd = 10*rd;
-		rd += atoi(instruction[i]);
+	rd_w[0] = instruction[i];
+	i++;j++;
+	if ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != ',')) {
+		rd_w[1] = instruction[i];
+		i++;j++;
+	}
+	rd_w[j] = '\0';j = 0;
+	while ((instruction[i] == ' ') || (instruction[i] == '\t') || (instruction[i] == ',')) { //passage à la deuxième opérande (rt)
 		i++;
 	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")||(instruction[i]==",")){ //passage à la deuxième opérande (rt)
+	rt_w[0] = instruction[i];
+	i++;j++;
+	if ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != ',')) {
+		rt_w[1] = instruction[i];
+		i++;j++;
+	}
+	rt_w[j] = '\0';j = 0;
+	while ((instruction[i] == ' ') || (instruction[i] == '\t') || (instruction[i] == ',')) { //passage à la troisième opérande (sa)
 		i++;
 	}
-	rt = atoi(instruction[i]); //enregistrement de rt (décimal)
-	i++;
-	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")&&(instruction[i]!="#")){
-		rt = 10*rt;
-		rt += atoi(instruction[i]);
-		i++;
+	sa_w[0] = instruction[i];
+	i++;j++;
+	if ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != '\0') && (instruction[i] != '#')) {
+		sa_w[1] = instruction[i];
+		i++;j++;
 	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")||(instruction[i]==",")){ //passage à la troisième opérande (sa)
-		i++;
-	}
-	sa = atoi(instruction[i]); //enregistrement de sa
-	i++;
-	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
-		sa = 10*sa;
-		sa+ = atoi(instruction[i]);
-		i++;
-	}
-	sprintf(rt_w,"%d",rt);
-	sprintf(sa_w,"%d",sa);
-	sprintf(rd_w,"%d",rd);
-	rt_b = decimalToBinary(rt_w);
-	sa_b = decimalToBinary(sa_w);
-	rd_b = decimalToBinary(rd_w);
-	strcpy(binaire, "00000000000");
-	strcpy(fin, "000000");
-	strcat(binaire,strcat(rt_b,strcat(rd_b,strcat(sa_b,fin))));
-	hexadecimal = binaryToHexa(binaire);
-	return hexadecimal;
+	sa_w[j] = '\0';
+
+	sa_instruction = atoi(sa_w);
+	rd_instruction = atoi(rd_w);
+	rt_instruction = atoi(rt_w);
+
+	registres[rd_instruction]=registres[rt_instruction]<<sa_instruction;
 }
