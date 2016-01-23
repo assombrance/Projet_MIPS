@@ -1,33 +1,29 @@
-#include "fonctionsHexa.h"
+#include "fonctionsEmul.h"
+#include "bibliotheque.h"
 
-char* mfloHexa(char* instruction) {
-	int i=0,rs,rd;
-	char* fin;
-	char binaire[32],hexadecimal[8],rd_w[3];
-	char* rd_b;
-	rd_b = malloc(sizeof(*rd_b)*7);
-	fin = malloc(sizeof(*fin)*32);
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au mflo
+void addEmul(char* instruction, char* memoire, int32_t* registres) {
+	
+	int i=0,j=0, rd_instruction;
+	char rd_w[3];
+
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage au add
 		i++;
 	}
-	while((instruction[i]!=" ")&&(instruction[i]!="%t")){ //passage de l'mflo
+	while ((instruction[i] != ' ' ) && (instruction[i] != '\t')) { //passage de l'add
 		i++;
 	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage à la première opérande (rd)
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage à la première opérande (rd)
 		i++;
 	}
-	rd = atoi(instruction[i]); //enregistrement de rd
-	i++;
-	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
-		rd = 10*rd;
-		rd += atoi(instruction[i]);
-		i++;
+	rd_w[0] = instruction[i];
+	i++;j++;
+	if ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != ',')) {
+		rd_w[1] = instruction[i];
+		i++;j++;
 	}
-	sprintf(rd_w,"%d",rd);
-	rd_b = decimalToBinary(rd_w);
-	strcpy(binaire, "0000000000000000");
-	strcpy(fin, "00000010010");
-	strcat(binaire,strcat(rd_b,fin));
-	hexadecimal = binaryToHexa(binaire);
-	return hexadecimal;
+	rd_w[j] = '\0';j = 0;
+
+	rd_instruction = atoi(rd_w);
+
+	registres[rd_instruction]=registres[33];
 }

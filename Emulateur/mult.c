@@ -38,8 +38,8 @@ void divEmul(char* instruction,char* memoire,int32_t* registres) {
 
 	result = registres[rt_instruction] * registres[rs_instruction];
 
-	LO = result%0x100000000;// LO et HI sont des registres spécialisés, ce sont 
-	HI = result/0x100000000;// les deux derniers éléments du tableau des registres
+	LO = result&0xffffffff;// LO et HI sont des registres spécialisés, ce sont 
+	HI = result>>32;// les deux derniers éléments du tableau des registres
 
 	registres[33] = LO;
 	registres[34] = HI;
