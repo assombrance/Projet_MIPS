@@ -1,4 +1,3 @@
-#include "fonctionsEmul.h"
 #include "bibliotheque.h"
 
 void addEmul(char* instruction, char* memoire, int32_t* registres) {

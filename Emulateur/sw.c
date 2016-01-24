@@ -1,4 +1,4 @@
-#include "bibliotheque.h"
+ #include "bibliotheque.h"
 
 void swEmul(char* instruction,char* memoire,int32_t* registres) {
 
@@ -35,5 +35,5 @@ void swEmul(char* instruction,char* memoire,int32_t* registres) {
 	rt_instruction = atoi(rt_w);
 	off_instruction = atoi(off_w);
 
-	memoire[off]=registres[rt_instruction];
+	memoire[off_instruction]=registres[rt_instruction];
 }

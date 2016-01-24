@@ -2,7 +2,7 @@
 
 void addiEmul(char* instruction,char* memoire,int32_t* registres) {
 
-	int32_t rs, rt, imm;
+	int32_t imm;
 	int i=0,j=0, rt_instruction, rs_instruction;
 	char rs_w[3], rt_w[3], imm_w[6];
 
