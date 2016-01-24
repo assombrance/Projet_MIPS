@@ -30,3 +30,6 @@
 
 # Debug files
 *.dSYM/
+
+# Pour ne pas avoir d'erreur lors du commit
+*.opensdf
