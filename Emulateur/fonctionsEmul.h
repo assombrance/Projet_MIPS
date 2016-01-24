@@ -1,6 +1,6 @@
 #include <string.h>
 #include "bibliotheques.h"
-#include "convMnemoniqueEmul.h"
+//#include "convMnemoniqueEmul.h"
 
 void addEmul(char*, char*, int32_t*);
 /*void addiEmul(char*, char*, int32_t*);

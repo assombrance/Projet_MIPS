@@ -1,6 +1,6 @@
 #include "bibliotheque.h"
 
-void addEmul(char* instruction, char* memoire, int32_t* registres) {
+void mfhiEmul(char* instruction, char* memoire, int32_t* registres) {
 	
 	int i=0,j=0, rd_instruction;
 	char rd_w[3];

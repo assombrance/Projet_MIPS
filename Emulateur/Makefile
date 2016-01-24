@@ -12,3 +12,6 @@ main.o: main.c
 
 clean:
 	rm -f *.o
+
+cleana:
+	rm -f *.o test

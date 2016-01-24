@@ -1,6 +1,6 @@
 #include "bibliotheque.h"
 
-void divEmul(char* instruction,char* memoire,int32_t* registres) {
+void multEmul(char* instruction,char* memoire,int32_t* registres) {
 
 	int64_t result;
 	int i=0,j=0, rt_instruction, rs_instruction, LO, HI;

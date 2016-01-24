@@ -1,8 +1,7 @@
 #include "bibliotheque.h"
 
-void addEmul(char* instruction, char* memoire, int32_t* registres) {
+void sltEmul(char* instruction, char* memoire, int32_t* registres) {
 	
-	int32_t rs, rt, rd;
 	int i=0,j=0, rt_instruction, rs_instruction, rd_instruction;
 	char rs_w[3], rt_w[3], rd_w[3];
 

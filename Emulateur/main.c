@@ -4,71 +4,147 @@
 
 int main(int argc, char* argv[]) {
 
-	/*FILE* source = NULL;
-	int currentCarac = 0;
-	unsigned int i = 0;
-	unsigned int j = 0;
-	char* BUFFER = NULL;
-	char* res = NULL;*/
 	char* memoire = NULL;
 	int32_t* registres = NULL; // registre spéciaux : 33->LO ; 34->HI
 	char* instruction_test = NULL;
 
-	//source = fopen("source.txt", "r");
-
 	instruction_test = malloc(sizeof(*instruction_test)*50);
 	registres = malloc(sizeof(*registres) * 35);
 	memoire = malloc(sizeof(*memoire) * 1024);
-	//BUFFER = malloc(sizeof(*BUFFER) * 32);
-	//res = malloc(sizeof(*BUFFER) * 32);
 
 	registres[1]=1;
 	registres[2]=2;
 	registres[3]=3;
+
+	memoire[1]=82;
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
 	
-	memoire[2]=17;
-	memoire[3]=4;
-
-	printf("%d \t %d \t %d \t %d \t %d\n%d \t %d \t %d\n\n",registres[1],registres[2],registres[3],registres[33], registres[34],memoire[1],memoire[2],memoire[3]);
-	//getchar();
-
 	strcpy(instruction_test, "addi 2, 3, 123");
-
+	printf("%s\n",instruction_test);
 	addiEmul(instruction_test, memoire, registres);
 
-	printf("%d \t %d \t %d \t %d \t %d\n%d \t %d \t %d\n\n",registres[1],registres[2],registres[3],registres[33], registres[34],memoire[1],memoire[2],memoire[3]);
-	
-	/*if (source == NULL) {
-		fprintf(stderr, "Unable to open one of the file \n");
-		exit(EXIT_FAILURE);
-	}*/
-	
-	
-		/*Lecture ligne par ligne et écriture dans une chaine de caractères*/
-		/*	# : 35
-			tabulation : 9
-			espace : 32
-		*/
-	
-	/*for (j = 0; j <= 100; j++) {
-		do {
-			currentCarac = fgetc(source);
-			printf("%d", currentCarac);
-			BUFFER[i] = currentCarac;
-			i++;
-		} while (currentCarac != '\n');
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
 
-		BUFFER[i] = '\0';
+	strcpy(instruction_test, "add 4, 3, 1");
+	printf("%s\n",instruction_test);
+	addEmul(instruction_test, memoire, registres);
 
-		res = convMnemonique(BUFFER, memoire, registres);
-	
-		BUFFER = malloc(sizeof(*BUFFER) * 32);
-		i = 0;
-	}*/
-		/*Filtrer la mnémonique présente dans la ligne */
-	
-	//fclose(source);
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
 
+	strcpy(instruction_test, "lw 5, 1");
+	printf("%s\n",instruction_test);
+	lwEmul(instruction_test, memoire, registres);
 
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	strcpy(instruction_test, "sw 2, 2");
+	printf("%s\n",instruction_test);
+	swEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+/*
+	strcpy(instruction_test, "add 2, 3, 1");
+	printf("%s\n",instruction_test);
+	addiEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	strcpy(instruction_test, "add 2, 3, 1");
+	printf("%s\n",instruction_test);
+	addiEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	strcpy(instruction_test, "add 2, 3, 1");
+	printf("%s\n",instruction_test);
+	addiEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	strcpy(instruction_test, "add 2, 3, 1");
+	printf("%s\n",instruction_test);
+	addiEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	strcpy(instruction_test, "add 2, 3, 1");
+	printf("%s\n",instruction_test);
+	addiEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	strcpy(instruction_test, "add 2, 3, 1");
+	printf("%s\n",instruction_test);
+	addiEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+*/
 	return 0;
 }
