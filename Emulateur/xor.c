@@ -47,9 +47,5 @@ void xorEmul(char* instruction,char* memoire,int32_t* registres) {
 	rd_instruction = atoi(rd_w);
 	rs_instruction = atoi(rs_w);
 
-	rt = registres[rt_instruction];
-	rs = registres[rs_instruction];
-	rd = registres[rd_instruction];
-
-	memoire[rd]=memoire[rs]^memoire[rt];
+	registres[rd_instruction]=registres[rs_instruction]^registres[rt_instruction];
 }

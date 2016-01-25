@@ -5,7 +5,7 @@
 int main(int argc, char* argv[]) {
 
 	char* memoire = NULL;
-	int32_t* registres = NULL; // registre spéciaux : 33->LO ; 34->HI
+	int32_t* registres = NULL; // registre spéciaux : 33->LO (les bits de poids faible); 34->HI (les bits de poids fort)
 	char* instruction_test = NULL;
 
 	instruction_test = malloc(sizeof(*instruction_test)*50);
@@ -19,8 +19,8 @@ int main(int argc, char* argv[]) {
 	memoire[1]=82;
 
 	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
 	printf("____________________________________________________________________________________\n");
 	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
 	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
@@ -31,8 +31,8 @@ int main(int argc, char* argv[]) {
 	addiEmul(instruction_test, memoire, registres);
 
 	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
 	printf("____________________________________________________________________________________\n");
 	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
 	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
@@ -43,8 +43,8 @@ int main(int argc, char* argv[]) {
 	addEmul(instruction_test, memoire, registres);
 
 	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
 	printf("____________________________________________________________________________________\n");
 	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
 	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
@@ -55,8 +55,8 @@ int main(int argc, char* argv[]) {
 	lwEmul(instruction_test, memoire, registres);
 
 	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
 	printf("____________________________________________________________________________________\n");
 	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
 	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
@@ -67,84 +67,124 @@ int main(int argc, char* argv[]) {
 	swEmul(instruction_test, memoire, registres);
 
 	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
 	printf("____________________________________________________________________________________\n");
 	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
 	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
 	printf("____________________________________________________________________________________\n\n");
-/*
-	strcpy(instruction_test, "add 2, 3, 1");
+
+	strcpy(instruction_test, "div 2, 3");
+	printf("%s\n",instruction_test);
+	divEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	strcpy(instruction_test, "mfhi 1");
+	printf("%s\n",instruction_test);
+	mfhiEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	strcpy(instruction_test, "mflo 2");
+	printf("%s\n",instruction_test);
+	mfloEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	strcpy(instruction_test, "sub 1, 2, 3");
+	printf("%s\n",instruction_test);
+	subEmul(instruction_test, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	strcpy(instruction_test, "addi 1, 1, 89961");
 	printf("%s\n",instruction_test);
 	addiEmul(instruction_test, memoire, registres);
 
-	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
-	printf("____________________________________________________________________________________\n");
-	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
-	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
-	printf("____________________________________________________________________________________\n\n");
-
-	strcpy(instruction_test, "add 2, 3, 1");
+	strcpy(instruction_test, "addi 3, 3, 89997");
 	printf("%s\n",instruction_test);
 	addiEmul(instruction_test, memoire, registres);
 
-	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
-	printf("____________________________________________________________________________________\n");
-	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
-	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
-	printf("____________________________________________________________________________________\n\n");
-
-	strcpy(instruction_test, "add 2, 3, 1");
+	strcpy(instruction_test, "mult 1, 3");
 	printf("%s\n",instruction_test);
-	addiEmul(instruction_test, memoire, registres);
+	multEmul(instruction_test, memoire, registres);
 
 	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
 	printf("____________________________________________________________________________________\n");
 	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
 	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
 	printf("____________________________________________________________________________________\n\n");
 
-	strcpy(instruction_test, "add 2, 3, 1");
+	strcpy(instruction_test, "lui 1, 17");
 	printf("%s\n",instruction_test);
-	addiEmul(instruction_test, memoire, registres);
-
-	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
-	printf("____________________________________________________________________________________\n");
-	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
-	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
-	printf("____________________________________________________________________________________\n\n");
-
-	strcpy(instruction_test, "add 2, 3, 1");
+	luiEmul(instruction_test, memoire, registres);
+	strcpy(instruction_test, "lui 2, 10");
 	printf("%s\n",instruction_test);
-	addiEmul(instruction_test, memoire, registres);
-
-	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
-	printf("____________________________________________________________________________________\n");
-	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
-	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
-	printf("____________________________________________________________________________________\n\n");
-
-	strcpy(instruction_test, "add 2, 3, 1");
+	luiEmul(instruction_test, memoire, registres);
+	strcpy(instruction_test, "or 3, 1, 2");
 	printf("%s\n",instruction_test);
-	addiEmul(instruction_test, memoire, registres);
-
+	orEmul(instruction_test, memoire, registres);
+	
 	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t LO\t HI\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[33], registres[34]);
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
 	printf("____________________________________________________________________________________\n");
 	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
 	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
 	printf("____________________________________________________________________________________\n\n");
-*/
+
+	luiEmul(instruction_test, memoire, registres);
+	strcpy(instruction_test, "xor 3, 1, 2");
+	printf("%s\n",instruction_test);
+	xorEmul(instruction_test, memoire, registres);
+	
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+
+	luiEmul(instruction_test, memoire, registres);
+	strcpy(instruction_test, "and 3, 1, 2");
+	printf("%s\n",instruction_test);
+	andEmul(instruction_test, memoire, registres);
+	
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
+	
 	return 0;
 }

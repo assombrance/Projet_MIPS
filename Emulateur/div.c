@@ -2,7 +2,6 @@
 
 void divEmul(char* instruction,char* memoire,int32_t* registres) {
 
-	int32_t rs, rt;
 	int i=0,j=0, rt_instruction, rs_instruction, LO, HI;
 	char rs_w[3], rt_w[3];
 
@@ -34,13 +33,10 @@ void divEmul(char* instruction,char* memoire,int32_t* registres) {
 	rt_w[j] = '\0';
 	
 	rt_instruction = atoi(rt_w);
-	rs_instruction = atoi(rs_w);
+	rs_instruction = atoi(rs_w);	
 
-	rt = registres[rt_instruction];
-	rs = registres[rs_instruction];
-
-	LO = memoire[rs]/memoire[rt];// LO et HI sont des registres spécialisés, ce sont 
-	HI = memoire[rs]%memoire[rt];// les deux derniers éléments du tableau des registres
+	LO = registres[rs_instruction]/registres[rt_instruction];// LO et HI sont des registres spécialisés, ce sont 
+	HI = registres[rs_instruction]%registres[rt_instruction];// les deux derniers éléments du tableau des registres
 
 	registres[33] = LO;
 	registres[34] = HI;

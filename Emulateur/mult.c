@@ -36,10 +36,16 @@ void multEmul(char* instruction,char* memoire,int32_t* registres) {
 	rt_instruction = atoi(rt_w);
 	rs_instruction = atoi(rs_w);
 
-	result = registres[rt_instruction] * registres[rs_instruction];
+	result = (int64_t) registres[rt_instruction] * (int64_t) registres[rs_instruction];
 
 	LO = result&0xffffffff;// LO et HI sont des registres spécialisés, ce sont 
 	HI = result>>32;// les deux derniers éléments du tableau des registres
+
+/*
+	dans l'affichage, LO et HI peuvent être négatifs sans que le résultat le soit,
+	il s'aggit juste de faire leur traduction en binaire puis leur complément à deux si négatifs.
+	on les réassemble à ce moment et on retrouve alors le résultat correct
+*/
 
 	registres[33] = LO;
 	registres[34] = HI;

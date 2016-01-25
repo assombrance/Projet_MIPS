@@ -46,5 +46,5 @@ void andEmul(char* instruction, char* memoire, int32_t* registres) {
 	rd_instruction = atoi(rd_w);
 	rs_instruction = atoi(rs_w);
 
-	registres[rt_instruction]=registres[rs_instruction]&registres[rd_instruction];
+	registres[rd_instruction]=registres[rs_instruction]&registres[rt_instruction];
 }

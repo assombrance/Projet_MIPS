@@ -23,6 +23,6 @@ void mfhiEmul(char* instruction, char* memoire, int32_t* registres) {
 	rd_w[j] = '\0';j = 0;
 
 	rd_instruction = atoi(rd_w);
-
+	
 	registres[rd_instruction]=registres[34];
 }

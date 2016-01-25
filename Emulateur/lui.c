@@ -27,7 +27,7 @@ void luiEmul(char* instruction,char* memoire,int32_t* registres) {
 	imm_w[0] = instruction[i];
 	i++;j++;
 	while ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != ',')) {
-		imm_w[1] = instruction[i];
+		imm_w[j] = instruction[i];
 		i++;j++;
 	}
 	imm_w[j] = '\0';
