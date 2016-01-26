@@ -46,5 +46,5 @@ void rotrEmul(char* instruction, char* memoire, int32_t* registres) {
 	rd_instruction = atoi(rd_w);
 	rt_instruction = atoi(rt_w);
 
-	registres[rd_instruction]= (registres[rt_instruction] << sa_instruction) | (registres[rt_instruction] >> (sizeof(int32_t)*8 - sa_instruction));
+	registres[rd_instruction]= (registres[rt_instruction] >> sa_instruction) | (registres[rt_instruction] << (sizeof(int32_t)*8 - sa_instruction));
 }
