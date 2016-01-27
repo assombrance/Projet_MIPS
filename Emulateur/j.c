@@ -1,33 +1,28 @@
-#include "fonctionsHexa.h"
+#include "bibliotheque.h"
 
-char* jHexa(char* instruction) {
-	int i=0,ind;
-	char binaire[32],hexadecimal[8],ind_w[9];
-
-	char* ind_b = NULL;
-
-	ind_b = malloc(sizeof(*rs_b) * 27);
+void jEmul(char* instruction, char* memoire, int32_t* registres) {
 	
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au add
+	int i=0,j=0, ind_instruction;
+	char ind_w[9]
+
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage au add
 		i++;
 	}
-	while((instruction[i]!=" ")&&(instruction[i]!="%t")){ //passage de l'add
+	while ((instruction[i] != ' ' ) && (instruction[i] != '\t')) { //passage de l'add
 		i++;
 	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage à l'opérande (ind)
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage à la première opérande (ind)
 		i++;
 	}
-	ind = atoi(instruction[i]); //enregistrement de ind
-	i++;
-	while((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
-		ind = 10*ind;
-		ind += atoi(instruction[i]);
-		i++;
+	ind_w[0] = instruction[i];
+	i++;j++;
+	while ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != ',')) {
+		ind_w[j] = instruction[i];
+		i++;j++;
 	}
-	sprintf(ind_w,"%d",ind);
-	ind_b = decimalToBinary(ind_w);
-	strcpy(binaire, "000010");
-	strcat(binaire,ind_b);
-	hexadecimal = binaryToHexa(binaire);
-	return hexadecimal;
+	ind_w[j] = '\0';
+
+	ind_instruction = atoi(ind_w);
+
+	registres[32] = (registres[32] & 4026531840) + (ind_instruction<<2); //4026531840 = 11110000000000000000000000000000 pour le masque
 }

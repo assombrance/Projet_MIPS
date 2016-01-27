@@ -1,50 +1,28 @@
-#include "fonctionsHexa.h"
+#include "bibliotheque.h"
 
-char* blezHexa(char* instruction) {
-	int i=0,rs,off;
-	char* special;
-	char binaire[32],hexadecimal[8],rs_w[3],off_w[6];
+void jalEmul(char* instruction, char* memoire, int32_t* registres) {
+	
+	int i=0,j=0, ind_instruction;
+	char ind_w[9]
 
-	char* rs_b = NULL;
-	char* off_b = NULL;
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage au add
+		i++;
+	}
+	while ((instruction[i] != ' ' ) && (instruction[i] != '\t')) { //passage de l'add
+		i++;
+	}
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage à la première opérande (ind)
+		i++;
+	}
+	ind_w[0] = instruction[i];
+	i++;j++;
+	while ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != ',')) {
+		ind_w[j] = instruction[i];
+		i++;j++;
+	}
+	ind_w[j] = '\0';
 
-	rs_b = malloc(sizeof(*rs_b) * 7);
-	off_b = malloc(sizeof(*rs_b) * 17);
-	fin = malloc(sizeof(*special)*32);
+	ind_instruction = atoi(ind_w);
 
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au add
-		i++;
-	}
-	while((instruction[i]!=" ")&&(instruction[i]!="%t")){ //passage de l'add
-		i++;
-	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage à la deuxième opérande (rs)
-		i++;
-	}
-	rs = atoi(instruction[i]); //enregistrement de rs
-	i++;
-	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
-		rs = 10*rs;
-		rs += atoi(instruction[i]);
-		i++;
-	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")||(instruction[i]==",")){ //passage à la troisième opérande (off)
-		i++;
-	}
-	off = atoi(instruction[i]); //enregistrement de off
-	i++;
-	while((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
-		off = 10*off;
-		off+ = atoi(instruction[i]);
-		i++;
-	}
-	sprintf(rs_w,"%d",rs);
-	sprintf(off_w,"%d",off);
-	rs_b = decimalToBinary(rs_w);
-	off_b = decimalToBinary(off_w);
-	strcpy(binaire, "000110");
-	strcpy(special, "00000");
-	strcat(binaire,strcat(rs_b,strcat(special,off_b)));
-	hexadecimal = binaryToHexa(binaire);
-	return hexadecimal;
+	registres[32] = (registres[32] & 4026531840) + (ind_instruction<<2); //4026531840 = 11110000000000000000000000000000 pour le masque
 }

@@ -1,19 +1,18 @@
 #include "bibliotheque.h"
 
-void miseEnForme(void) {
+void miseEnForme(char* nomSource, char* nomSortie) {
 
 	FILE* output = NULL;
 	FILE* source = NULL;
 	int character;
 
-	output = fopen("output.txt", "w");
-	source = fopen("source.txt", "r");
+	output = fopen(nomSortie, "w");
+	source = fopen(nomSource, "r");
 
 	if ((source == NULL) || (output == NULL)) {
-		fprintf(stderr, "Unable to open the file \n");
+		fprintf(stderr, "Unable to open the file in miseEnForme\n");
 		exit(EXIT_FAILURE);
 	}
-
 
 	do {
 		do {

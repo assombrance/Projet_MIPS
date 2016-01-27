@@ -1,23 +1,29 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
-//#include "CompileFromText.h"
-//#include "Conversion.h"
 
+//fonctions de l'émulateur
 
-void addEmul(char* instruction, char* memoire, int32_t* registres);
-void xorEmul(char* instruction, char* memoire, int32_t* registres);
-void subEmul(char* instruction, char* memoire, int32_t* registres);
-void orEmul(char* instruction, char* memoire, int32_t* registres);
-void divEmul(char* instruction, char* memoire, int32_t* registres);
-void addiEmul(char* instruction, char* memoire, int32_t* registres);
-void andEmul(char* instruction, char* memoire, int32_t* registres);
-void luiEmul(char* instruction, char* memoire, int32_t* registres);
-void lwEmul(char* instruction, char* memoire, int32_t* registres);
-void mfhiEmul(char* instruction, char* memoire, int32_t* registres);
-void mfloEmul(char* instruction, char* memoire, int32_t* registres);
-void rotrEmul(char* instruction, char* memoire, int32_t* registres);
-void sllEmul(char* instruction, char* memoire, int32_t* registres);
-void sltEmul(char* instruction, char* memoire, int32_t* registres);
-void srlEmul(char* instruction, char* memoire, int32_t* registres);
-void swEmul(char* instruction, char* memoire, int32_t* registres);
+void addEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void xorEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void subEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void multEmul(char* instruction, char* memoire, int32_t* registres);	//fait
+void orEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void divEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void addiEmul(char* instruction, char* memoire, int32_t* registres);	//fait
+void andEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void luiEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void lwEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void mfhiEmul(char* instruction, char* memoire, int32_t* registres);	//fait
+void mfloEmul(char* instruction, char* memoire, int32_t* registres);	//fait
+void rotrEmul(char* instruction, char* memoire, int32_t* registres);	//fait
+void sllEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void sltEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void srlEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void swEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+
+// fonctions utilitaires
+
+void miseEnForme(char*, char*);
+int taille (char*);
+void convMnemoniqueEmul(char*);

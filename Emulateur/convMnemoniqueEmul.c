@@ -1,16 +1,13 @@
-#include "bibliotheques.h"
+#include "bibliotheque.h"
 
-char* convMnemonique(char* ligne,char *memoire,int32_t *registres) {
+void convMnemoniqueEmul(char* ligne, char* memoire, int32_t* registres) {
 
 	unsigned int i = 0;
 	unsigned int j;
 	unsigned int offset;
 	char* operation = NULL;
-	char* mask = NULL;
-	char* res = NULL;
-	char* ligne_masked = NULL;
 
-	res = malloc(sizeof(*res) * 32);
+	malloc(sizeof(*res) * 32);
 	mask = malloc(sizeof(*res) * 32);
 	operation = malloc(sizeof(*operation) * ((MAX_SIZE_MNEMO) + 1));
 
@@ -35,85 +32,81 @@ char* convMnemonique(char* ligne,char *memoire,int32_t *registres) {
 		j++;
 	}
 
-	free(operation);
-
-	/*
 	if (operation == "add") {
-		res = addHexa(ligne, memoire, registres);
+		addEmul(ligne);
 	}
 	else if (operation == "addi") {
-		res = addiHexa(ligne, memoire, registres);
+		addiEmul(ligne);
 	}
 	else if (operation == "sub") {
-		res = subHexa(ligne, memoire, registres);
+		subEmul(ligne);
 	}
 	else if (operation == "mult") {
-		res = multHexa(ligne, memoire, registres);
+		multEmul(ligne);
 	}
 	else if (operation == "div") {
-		res = divHexa(ligne, memoire, registres);
+		divEmul(ligne);
 	}
 	else if (operation == "and") {
-		res = andHexa(ligne, memoire, registres);
+		andEmul(ligne);
 	}
 	else if (operation == "or") {
-		res = orHexa(ligne,memoire,registres);
+		orEmul(ligne);
 	}
 	else if (operation == "xor") {
-		res = xorHexa(ligne,memoire,registres);
+		xorEmul(ligne);
 	}
 	else if (operation == "rotr") {
-		res = rotrHexa(ligne,memoire,registres);
+		rotrEmul(ligne);
 	}
 	else if (operation == "sll") {
-		res = sllHexa(ligne,memoire,registres);
+		sllEmul(ligne);
 	}
 	else if (operation == "srl") {
-		res = srlHexa(ligne,memoire,registres);
+		srlEmul(ligne);
 	}
 	else if (operation == "slt") {
-		res = sltHexa(ligne,memoire,registres);
+		sltEmul(ligne);
 	}
 	else if (operation == "lw") {
-		res = lwHexa(ligne,memoire,registres);
+		lwEmul(ligne);
 	}
 	else if (operation == "sw") {
-		res = swHexa(ligne,memoire,registres);
+		swEmul(ligne);
 	}
 	else if (operation == "lui") {
-		res = luiHexa(ligne,memoire,registres);
+		luiEmul(ligne);
 	}
 	else if (operation == "mfhi") {
-		res = mfhiHexa(ligne,memoire,registres);
+		mfhiEmul(ligne);
 	}
 	else if (operation == "mflo") {
-		res = mfloHexa(ligne, memoire, registres);
+		mfloEmul(ligne);
 	}
 	else if (operation == "beq") {
-		res = beqHexa(ligne, memoire, registres);
+		beqEmul(ligne);
 	}
 	else if (operation == "bne") {
-		res = bneHexa(ligne, memoire, registres);
+		bneEmul(ligne);
 	}
 	else if (operation == "bgtz") {
-		res = bgtzHexa(ligne, memoire, registres);
+		bgtzEmul(ligne);
 	}
 	else if (operation == "blez") {
-		res = blezHexa(ligne, memoire, registres);
+		blezEmul(ligne);
 	}
 	else if (operation == "j") {
-		res = jHexa(ligne, memoire, registres);
+		jEmul(ligne);
 	}
 	else if (operation == "jal") {
-		res = jalHexa(ligne, memoire, registres);
+		jalEmul(ligne);
 	}
 	else if (operation == "jr") {
-		res = jrHexa(ligne, memoire, registres);
+		jrEmul(ligne);
 	}
 	else {
 		fprintf(stderr, "Mnémonique non reconnue \n");
 	}
-	*/
-	return res;
 
+	free(operation);
 }

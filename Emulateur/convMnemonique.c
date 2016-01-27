@@ -1,16 +1,13 @@
-#include "CompileFromText.h"
+#include "bibliotheque.h"
 
-char* convMnemonique(char* ligne) {
+void convMnemoniqueEmul(char* ligne, char* memoire, int32_t* registres) {
 
 	unsigned int i = 0;
 	unsigned int j;
 	unsigned int offset;
 	char* operation = NULL;
-	char* mask = NULL;
-	char* res = NULL;
-	char* ligne_masked = NULL;
 
-	res = malloc(sizeof(*res) * 32);
+	malloc(sizeof(*res) * 32);
 	mask = malloc(sizeof(*res) * 32);
 	operation = malloc(sizeof(*operation) * ((MAX_SIZE_MNEMO) + 1));
 
@@ -35,87 +32,81 @@ char* convMnemonique(char* ligne) {
 		j++;
 	}
 
-	free(operation);
-
-
-	/*
-	if (operation == "ADD") {
-		res = addHexa(ligne);
+	if (operation == "add") {
+		addEmul(ligne);
 	}
-	else if (operation == "ADDI") {
-		res = addiHexa(ligne);
+	else if (operation == "addi") {
+		addiEmul(ligne);
 	}
-	else if (operation == "SUB") {
-		res = subHexa(ligne);
+	else if (operation == "sub") {
+		subEmul(ligne);
 	}
-	else if (operation == "MULT") {
-		res = multHexa(ligne);
+	else if (operation == "mult") {
+		multEmul(ligne);
 	}
-	else if (operation == "DIV") {
-		res = divHexa(ligne);
+	else if (operation == "div") {
+		divEmul(ligne);
 	}
-	else if (operation == "AND") {
-		res = andHexa(ligne);
+	else if (operation == "and") {
+		andEmul(ligne);
 	}
-	else if (operation == "OR") {
-		res = orHexa(ligne);
+	else if (operation == "or") {
+		orEmul(ligne);
 	}
-	else if (operation == "XOR") {
-		res = xorHexa(ligne);
+	else if (operation == "xor") {
+		xorEmul(ligne);
 	}
-	else if (operation == "ROTR") {
-		res = rotrHexa(ligne);
+	else if (operation == "rotr") {
+		rotrEmul(ligne);
 	}
-	else if (operation == "SLL") {
-		res = sllHexa(ligne);
+	else if (operation == "sll") {
+		sllEmul(ligne);
 	}
-	else if (operation == "SRL") {
-		res = srlHexa(ligne);
+	else if (operation == "srl") {
+		srlEmul(ligne);
 	}
-	else if (operation == "SLT") {
-		res = sltHexa(ligne);
+	else if (operation == "slt") {
+		sltEmul(ligne);
 	}
-	else if (operation == "LW") {
-		res = lwHexa(ligne);
+	else if (operation == "lw") {
+		lwEmul(ligne);
 	}
-	else if (operation == "SW") {
-		res = swHexa(ligne);
+	else if (operation == "sw") {
+		swEmul(ligne);
 	}
-	else if (operation == "LUI") {
-		res = luiHexa(ligne);
+	else if (operation == "lui") {
+		luiEmul(ligne);
 	}
-	else if (operation == "MFHI") {
-		res = mfhiHexa(ligne);
+	else if (operation == "mfhi") {
+		mfhiEmul(ligne);
 	}
-	else if (operation == "MFLO") {
-		res = mfloHexa(ligne);
+	else if (operation == "mflo") {
+		mfloEmul(ligne);
 	}
-	else if (operation == "BEQ") {
-		res = beqHexa(ligne);
+	else if (operation == "beq") {
+		beqEmul(ligne);
 	}
-	else if (operation == "BNE") {
-		res = bneHexa(ligne);
+	else if (operation == "bne") {
+		bneEmul(ligne);
 	}
-	else if (operation == "BGTZ") {
-		res = bgtzHexa(ligne);
+	else if (operation == "bgtz") {
+		bgtzEmul(ligne);
 	}
-	else if (operation == "BLEZ") {
-		res = blezHexa(ligne);
+	else if (operation == "blez") {
+		blezEmul(ligne);
 	}
-	else if (operation == "J") {
-		res = jHexa(ligne);
+	else if (operation == "j") {
+		jEmul(ligne);
 	}
-	else if (operation == "JAL") {
-		res = jalHexa(ligne);
+	else if (operation == "jal") {
+		jalEmul(ligne);
 	}
-	else if (operation == "JR") {
-		res = jrHexa(ligne);
+	else if (operation == "jr") {
+		jrEmul(ligne);
 	}
 	else {
 		fprintf(stderr, "Mnémonique non reconnue \n");
 	}
-	*/
 
-	return res;
-
+	free(operation);
 }
