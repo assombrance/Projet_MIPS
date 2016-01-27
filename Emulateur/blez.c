@@ -1,9 +1,9 @@
 #include "bibliotheque.h"
 
-void jalEmul(char* instruction, char* memoire, int32_t* registres) {
+void blezEmul(char* instruction, char* memoire, int32_t* registres) {
 	
-	int i=0,j=0, ind_instruction;
-	char ind_w[9]
+	int i=0,j=0, off_instruction, rs_instruction;
+	char off_w[7], rs_w[3];
 
 	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage au add
 		i++;
@@ -11,18 +11,29 @@ void jalEmul(char* instruction, char* memoire, int32_t* registres) {
 	while ((instruction[i] != ' ' ) && (instruction[i] != '\t')) { //passage de l'add
 		i++;
 	}
-	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage à la première opérande (ind)
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage à la première opérande (rs)
 		i++;
 	}
-	ind_w[0] = instruction[i];
+	rs_w[0] = instruction[i];
 	i++;j++;
-	while ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != ',')) {
-		ind_w[j] = instruction[i];
+	if ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != ',')) {
+		rs_w[1] = instruction[i];
 		i++;j++;
 	}
-	ind_w[j] = '\0';
+	rs_w[j] = '\0';j = 0;
+	while ((instruction[i] == ' ') || (instruction[i] == '\t') || (instruction[i] == ',')) { //passage à la troisième opérande (off)
+		i++;
+	}
+	off_w[0] = instruction[i];
+	i++;j++;
+	while ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != '\0') && (instruction[i] != '#')) {
+		off_w[1] = instruction[i];
+		i++;j++;
+	}
+	off_w[j] = '\0';
 
-	ind_instruction = atoi(ind_w);
+	off_instruction = atoi(off_w);
+	rs_instruction = atoi(rs_w);
 
-	registres[32] = (registres[32] & 4026531840) + (ind_instruction<<2); //4026531840 = 11110000000000000000000000000000 pour le masque
+	if ( registres[rs_instruction] <= 0 ) registres[32] += off_instruction<<2 ;
 }

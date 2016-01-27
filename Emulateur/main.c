@@ -12,8 +12,22 @@ int main(int argc, char* argv[]) {
 
 	registres = malloc(sizeof(*registres) * 35);
 	memoire = malloc(sizeof(*memoire) * 1024);
-	BUFFER = malloc(sizeof(BUFFER) * 32);
+	BUFFER = malloc(sizeof(*BUFFER) * 32);
 	registres[32]=0;
+
+	registres[1]=1;
+	registres[2]=2;
+	registres[3]=3;
+
+	memoire[1]=82;
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
 
 	miseEnForme("source.txt", "sourceNormalisee.txt");
 	tailleSource = taille("sourceNormalisee.txt");
@@ -32,7 +46,7 @@ int main(int argc, char* argv[]) {
 			i++;
 		} while ((character != '\n') && (character != EOF));
 		BUFFER[i] = '\0';
-		convMnemoniqueEmul(BUFFER);
+		convMnemoniqueEmul(BUFFER, memoire, registres);
 		i = 0;
 		registres[32]+=4; //une instruction fait 4 octets
 
@@ -43,7 +57,7 @@ int main(int argc, char* argv[]) {
 
 		fclose(source);
 		position = 0;
-	} while (character != EOF)
+	} while (character != EOF);
 
 	return 0;
 }

@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 //fonctions de l'émulateur
 
@@ -21,9 +22,17 @@ void sllEmul(char* instruction, char* memoire, int32_t* registres);		//fait
 void sltEmul(char* instruction, char* memoire, int32_t* registres);		//fait
 void srlEmul(char* instruction, char* memoire, int32_t* registres);		//fait
 void swEmul(char* instruction, char* memoire, int32_t* registres);		//fait
+void jEmul(char* instruction, char* memoire, int32_t* registres);
+void jrEmul(char* instruction, char* memoire, int32_t* registres);
+void jalEmul(char* instruction, char* memoire, int32_t* registres);
+void beqEmul(char* instruction, char* memoire, int32_t* registres);
+void blezEmul(char* instruction, char* memoire, int32_t* registres);
+void bneEmul(char* instruction, char* memoire, int32_t* registres);
+void bgtzEmul(char* instruction, char* memoire, int32_t* registres);
+
 
 // fonctions utilitaires
 
 void miseEnForme(char*, char*);
 int taille (char*);
-void convMnemoniqueEmul(char*);
+void convMnemoniqueEmul(char*, char*, int32_t*);

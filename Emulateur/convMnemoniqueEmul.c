@@ -2,111 +2,104 @@
 
 void convMnemoniqueEmul(char* ligne, char* memoire, int32_t* registres) {
 
-	unsigned int i = 0;
-	unsigned int j;
-	unsigned int offset;
-	char* operation = NULL;
-
-	malloc(sizeof(*res) * 32);
-	mask = malloc(sizeof(*res) * 32);
-	operation = malloc(sizeof(*operation) * ((MAX_SIZE_MNEMO) + 1));
+	unsigned int i = 0, j = 0;
+	char operation[5];
 
 	/*Curseur de début d'instruction*/
 	while (ligne[i] == '\t' || ligne[i] == ' ') {
 		i++;
 	}
 
-	offset = i;
+	while (ligne[i] != '\t' && ligne[i] != ' ') {
+		operation[j] = ligne[i];
+		i++; j++;
+	}
+	operation[j] = '\0';
 
-	for (j = offset; j <= MAX_SIZE_MNEMO + offset; j++) {
-		operation[j - offset] = ligne[i];
-		i++;
+	if (strcmp(operation, "add")) {
+		addEmul(ligne, memoire, registres);
 	}
-	operation[j - 2] = '\0';
-
-	/*Suppresion des caractères après un espace*/
-	for (j = 0; j <= MAX_SIZE_MNEMO; j++) {
-		if (operation[j] == ' ') {
-			operation[j] = '\0';
-		}
-		j++;
+	else if (strcmp(operation, "addi")) {
+		addiEmul(ligne, memoire, registres);
 	}
-
-	if (operation == "add") {
-		addEmul(ligne);
+	else if (strcmp(operation, "sub")) {
+		subEmul(ligne, memoire, registres);
 	}
-	else if (operation == "addi") {
-		addiEmul(ligne);
+	else if (strcmp(operation, "mult")) {
+		multEmul(ligne, memoire, registres);
 	}
-	else if (operation == "sub") {
-		subEmul(ligne);
+	else if (strcmp(operation, "div")) {
+		divEmul(ligne, memoire, registres);
 	}
-	else if (operation == "mult") {
-		multEmul(ligne);
+	else if (strcmp(operation, "and")) {
+		andEmul(ligne, memoire, registres);
 	}
-	else if (operation == "div") {
-		divEmul(ligne);
+	else if (strcmp(operation, "or")) {
+		orEmul(ligne, memoire, registres);
 	}
-	else if (operation == "and") {
-		andEmul(ligne);
+	else if (strcmp(operation, "xor")) {
+		xorEmul(ligne, memoire, registres);
 	}
-	else if (operation == "or") {
-		orEmul(ligne);
+	else if (strcmp(operation, "rotr")) {
+		rotrEmul(ligne, memoire, registres);
 	}
-	else if (operation == "xor") {
-		xorEmul(ligne);
+	else if (strcmp(operation, "sll")) {
+		sllEmul(ligne, memoire, registres);
 	}
-	else if (operation == "rotr") {
-		rotrEmul(ligne);
+	else if (strcmp(operation, "srl")) {
+		srlEmul(ligne, memoire, registres);
 	}
-	else if (operation == "sll") {
-		sllEmul(ligne);
+	else if (strcmp(operation, "slt")) {
+		sltEmul(ligne, memoire, registres);
 	}
-	else if (operation == "srl") {
-		srlEmul(ligne);
+	else if (strcmp(operation, "lw")) {
+		lwEmul(ligne, memoire, registres);
 	}
-	else if (operation == "slt") {
-		sltEmul(ligne);
+	else if (strcmp(operation, "sw")) {
+		swEmul(ligne, memoire, registres);
 	}
-	else if (operation == "lw") {
-		lwEmul(ligne);
+	else if (strcmp(operation, "lui")) {
+		luiEmul(ligne, memoire, registres);
 	}
-	else if (operation == "sw") {
-		swEmul(ligne);
+	else if (strcmp(operation, "mfhi")) {
+		mfhiEmul(ligne, memoire, registres);
 	}
-	else if (operation == "lui") {
-		luiEmul(ligne);
+	else if (strcmp(operation, "mflo")) {
+		mfloEmul(ligne, memoire, registres);
 	}
-	else if (operation == "mfhi") {
-		mfhiEmul(ligne);
+	else if (strcmp(operation, "beq")) {
+		beqEmul(ligne, memoire, registres);
 	}
-	else if (operation == "mflo") {
-		mfloEmul(ligne);
+	else if (strcmp(operation, "bne")) {
+		bneEmul(ligne, memoire, registres);
 	}
-	else if (operation == "beq") {
-		beqEmul(ligne);
+	else if (strcmp(operation, "bgtz")) {
+		bgtzEmul(ligne, memoire, registres);
 	}
-	else if (operation == "bne") {
-		bneEmul(ligne);
+	else if (strcmp(operation, "blez")) {
+		blezEmul(ligne, memoire, registres);
 	}
-	else if (operation == "bgtz") {
-		bgtzEmul(ligne);
+	else if (strcmp(operation, "j")) {
+		jEmul(ligne, memoire, registres);
 	}
-	else if (operation == "blez") {
-		blezEmul(ligne);
+	else if (strcmp(operation, "jal")) {
+		jalEmul(ligne, memoire, registres);
 	}
-	else if (operation == "j") {
-		jEmul(ligne);
-	}
-	else if (operation == "jal") {
-		jalEmul(ligne);
-	}
-	else if (operation == "jr") {
-		jrEmul(ligne);
+	else if (strcmp(operation, "jr")) {
+		jrEmul(ligne, memoire, registres);
 	}
 	else {
 		fprintf(stderr, "Mnémonique non reconnue \n");
 	}
 
-	free(operation);
+	printf("%s\n",ligne);
+	addiEmul(ligne, memoire, registres);
+
+	printf("____________________________________________________________________________________\n");
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5],registres[34], registres[33]);
+	printf("____________________________________________________________________________________\n");
+	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
+	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
+	printf("____________________________________________________________________________________\n\n");
 }

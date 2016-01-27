@@ -3,7 +3,7 @@
 void jrEmul(char* instruction, char* memoire, int32_t* registres) {
 	
 	int i=0,j=0, rs_instruction;
-	char rs_w[3]
+	char rs_w[3];
 
 	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage au add
 		i++;

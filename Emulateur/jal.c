@@ -3,7 +3,7 @@
 void jalEmul(char* instruction, char* memoire, int32_t* registres) {
 	
 	int i=0,j=0, ind_instruction;
-	char ind_w[9]
+	char ind_w[9];
 
 	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage au add
 		i++;
