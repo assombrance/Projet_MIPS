@@ -1,6 +1,6 @@
 #include "bibliotheque.h"
 
-void convMnemoniqueEmul(char* ligne, char* memoire, int32_t* registres) {
+void convMnemoniqueEmul(char* ligne, char* memoire, int32_t* registres, int pasAPas) {
 
 	unsigned int i = 0, j = 0;
 	char operation[5];
@@ -94,10 +94,10 @@ void convMnemoniqueEmul(char* ligne, char* memoire, int32_t* registres) {
 
 	printf("%s\n",ligne);
 
-	if (pasAPas);
+	if (pasAPas) {
 		printf("____________________________________________________________________________________\n");
-		printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\t PC\n");
-		printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5], registres[34], registres[33],registres[32]);
+		printf("registre n° :\t1\t 2\t 3\t 4\t 5\t RET\t HI\t LO\t PC\n");
+		printf("contenu :\t%d \t %d \t %d \t %d \t %d\t %d \t %d \t %d\t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5], registres[31], registres[34], registres[33],registres[32]);
 		printf("____________________________________________________________________________________\n");
 		printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
 		printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);

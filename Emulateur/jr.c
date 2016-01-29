@@ -26,5 +26,5 @@ void jrEmul(char* instruction, char* memoire, int32_t* registres) {
 
 	registres[rs_instruction] -= registres[rs_instruction]&3; //les deux derniers bites doivent être à 0 pour que l'adresse soit correcte
 
-	registres[32] = registres[rs_instruction];
+	registres[32] = registres[rs_instruction] - 4;
 }

@@ -24,5 +24,5 @@ void jEmul(char* instruction, char* memoire, int32_t* registres) {
 
 	ind_instruction = atoi(ind_w);
 
-	registres[32] = (registres[32] & 4026531840) + (ind_instruction<<2); //4026531840 = 11110000000000000000000000000000 pour le masque
+	registres[32] = (registres[32] & 4026531840) + (ind_instruction<<2) - 4; //4026531840 = 11110000000000000000000000000000 pour le masque
 }

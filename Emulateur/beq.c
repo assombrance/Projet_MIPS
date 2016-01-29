@@ -46,5 +46,5 @@ void beqEmul(char* instruction, char* memoire, int32_t* registres) {
 	rs_instruction = atoi(rs_w);
 	rt_instruction = atoi(rt_w);
 
-	if ( registres[rs_instruction] == registres[rt_instruction] ) registres[32] += off_instruction<<2;
+	if ( registres[rs_instruction] == registres[rt_instruction] ) registres[32] += (off_instruction<<2) - 4;
 }

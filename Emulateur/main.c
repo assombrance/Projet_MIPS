@@ -20,15 +20,15 @@ int main(int argc, char* argv[]) {
 
 	registres[32]=0;
 
-	registres[1]=1;
-	registres[2]=2;
-	registres[3]=3;
+	registres[1]=-3;
+	registres[2]=0;
+	registres[3]=1;
 
 	memoire[1]=82;
 
 	printf("____________________________________________________________________________________\n");
-	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t HI\t LO\t PC\n");
-	printf("contenu :\t%d \t %d \t %d \t %d \t %d \t %d \t %d\t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5], registres[34], registres[33],registres[32]);
+	printf("registre n° :\t1\t 2\t 3\t 4\t 5\t RET\t HI\t LO\t PC\n");
+	printf("contenu :\t%d \t %d \t %d \t %d \t %d\t %d \t %d \t %d\t %d\n",registres[1],registres[2],registres[3],registres[4],registres[5], registres[31], registres[34], registres[33],registres[32]);
 	printf("____________________________________________________________________________________\n");
 	printf("mémoire :\t1\t 2\t 3\t 4\t 5\n");
 	printf("\t\t%d \t %d \t %d \t %d \t %d\n", memoire[1],memoire[2],memoire[3],memoire[4],memoire[5]);
@@ -57,14 +57,14 @@ int main(int argc, char* argv[]) {
 			i++;
 		} while ((character != '\n') && (character != EOF));
 		BUFFER[i] = '\0';
-		convMnemoniqueEmul(BUFFER, memoire, registres);
+		convMnemoniqueEmul(BUFFER, memoire, registres, 1);
 		i = 0;
 		registres[32]+=4; //une instruction fait 4 octets
 
 
 		fclose(source);
 		position = 0;
-	} while ( registres[32] > tailleSource*4 );
+	} while ( registres[32] < tailleSource*4 );
 
 	free(BUFFER);
 

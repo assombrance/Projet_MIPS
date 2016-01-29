@@ -19,7 +19,9 @@ void miseEnForme(char* nomSource, char* nomSortie) {
 			character = fgetc(source);
 		} while (((char)character == ' ') || ((char)character == '\t')||(((char)character == '\n')));
 		if ((char)character == '#') {
-			while ((char)fgetc(source)!='\n');
+			do {
+				character = fgetc(source); 
+			} while ( ((char) character !='\n') && (character != EOF) );
 		} else {
 			do {
 				fputc(character,output);

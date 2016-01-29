@@ -35,5 +35,5 @@ void blezEmul(char* instruction, char* memoire, int32_t* registres) {
 	off_instruction = atoi(off_w);
 	rs_instruction = atoi(rs_w);
 
-	if ( registres[rs_instruction] <= 0 ) registres[32] += off_instruction<<2 ;
+	if ( registres[rs_instruction] <= 0 ) registres[32] += (off_instruction<<2) - 4 ;
 }

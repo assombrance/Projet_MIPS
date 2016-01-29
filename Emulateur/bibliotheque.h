@@ -35,4 +35,4 @@ void bgtzEmul(char* instruction, char* memoire, int32_t* registres);
 
 void miseEnForme(char*, char*);
 int taille (char*);
-void convMnemoniqueEmul(char*, char*, int32_t*);
+void convMnemoniqueEmul(char*, char*, int32_t*, int);
