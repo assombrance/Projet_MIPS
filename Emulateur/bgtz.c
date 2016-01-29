@@ -1,50 +1,39 @@
-#include "fonctionsHexa.h"
+#include "bibliotheque.h"
 
-char* bgtzHexa(char* instruction) {
-	int i=0,rs,off;
-	char* special;
-	char binaire[32],hexadecimal[8],rs_w[3],off_w[7];
+void bgtzEmul(char* instruction, char* memoire, int32_t* registres) {
+	
+	int i=0,j=0, off_instruction, rs_instruction;
+	char off_w[7], rs_w[3];
 
-	char* rs_b = NULL;
-	char* off_b = NULL;
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage au add
+		i++;
+	}
+	while ((instruction[i] != ' ' ) && (instruction[i] != '\t')) { //passage de l'add
+		i++;
+	}
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage à la première opérande (rs)
+		i++;
+	}
+	rs_w[0] = instruction[i];
+	i++;j++;
+	if ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != ',')) {
+		rs_w[1] = instruction[i];
+		i++;j++;
+	}
+	rs_w[j] = '\0';j = 0;
+	while ((instruction[i] == ' ') || (instruction[i] == '\t') || (instruction[i] == ',')) { //passage à la troisième opérande (off)
+		i++;
+	}
+	off_w[0] = instruction[i];
+	i++;j++;
+	while ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != '\0') && (instruction[i] != '#')) {
+		off_w[1] = instruction[i];
+		i++;j++;
+	}
+	off_w[j] = '\0';
 
-	rs_b = malloc(sizeof(*rs_b) * 7);
-	off_b = malloc(sizeof(*rs_b) * 17);
-	fin = malloc(sizeof(*special)*32);
+	off_instruction = atoi(off_w);
+	rs_instruction = atoi(rs_w);
 
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au add
-		i++;
-	}
-	while((instruction[i]!=" ")&&(instruction[i]!="%t")){ //passage de l'add
-		i++;
-	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage à la deuxième opérande (rs)
-		i++;
-	}
-	rs = atoi(instruction[i]); //enregistrement de rs
-	i++;
-	if((instruction[i]!=" ")||(instruction[i]!="%t")||(instruction[i]!=",")){
-		rs = 10*rs;
-		rs += atoi(instruction[i]);
-		i++;
-	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")||(instruction[i]==",")){ //passage à la troisième opérande (off)
-		i++;
-	}
-	off = atoi(instruction[i]); //enregistrement de off
-	i++;
-	while((instruction[i]!=" ")||(instruction[i]!="%t")||(instruction[i]!="%0")||(instruction[i]!="#")){
-		off = 10*off;
-		off+ = atoi(instruction[i]);
-		i++;
-	}
-	sprintf(rs_w,"%d",rs);
-	sprintf(off_w,"%d",off);
-	rs_b = decimalToBinary(rs_w);
-	off_b = decimalToBinary(off_w);
-	strcpy(binaire, "000111");
-	strcpy(special, "00000");
-	strcat(binaire,strcat(rs_b,strcat(special,off)));
-	hexadecimal = binaryToHexa(binaire);
-	return hexadecimal;
+	if ( registres[rs_instruction] > 0 ) registres[32] += (off_instruction<<2) - 4;
 }

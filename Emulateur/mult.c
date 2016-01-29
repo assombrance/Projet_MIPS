@@ -1,51 +1,52 @@
-#include "fonctionsHexa.h"
+#include "bibliotheque.h"
 
-char* multHexa(char* instruction) {
-	int i=0,rs,rt,rdt;
-	char* fin;
-	char binaire[32],hexadecimal[8],rs_w[3],rt_w[3],rd_w[3];
-	char* rt_b;
-	rt_b = malloc(sizeof(*rt_b)*7);
-	char* rs_b;
-	rs_b = malloc(sizeof(*rs_b)*7);
-	char* rd_b;
-	rd_b = malloc(sizeof(*rd_b)*7);
-	fin = malloc(sizeof(*fin)*32);
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage au mult
+void multEmul(char* instruction,char* memoire,int32_t* registres) {
+
+	int64_t result;
+	int i=0,j=0, rt_instruction, rs_instruction, LO, HI;
+	char rs_w[3], rt_w[3];
+
+	while ((instruction[i] == ' ') || (instruction[i] == '\t')) { //passage au add
 		i++;
 	}
-	while((instruction[i]!=" ")&&(instruction[i]!="%t")){ //passage de l'mult
+	while ((instruction[i] != ' ' ) && (instruction[i] != '\t')) { //passage de l'add
 		i++;
 	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")){ //passage à la première opérande (rs)
+	while ((instruction[i] == ' ') || (instruction[i] == '\t') || (instruction[i] == ',')) { //passage à la première opérande (rs)
 		i++;
 	}
-	rs = atoi(instruction[i]); //enregistrement de rs
-	i++;
-	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!=",")){
-		rs = 10*rs;
-		rs += atoi(instruction[i]);
+	rs_w[0] = instruction[i];
+	i++;j++;
+	if ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != ',')) {
+		rs_w[1] = instruction[i];
+		i++;j++;
+	}
+	rs_w[j] = '\0';j = 0;
+	while ((instruction[i] == ' ') || (instruction[i] == '\t') || (instruction[i] == ',')) { //passage à la seconde opérande (rt)
 		i++;
 	}
-	while((instruction[i]==" ")||(instruction[i]=="%t")||(instruction[i]==",")){ //passage à la deuxième opérande (rt)
-		i++;
+	rt_w[0] = instruction[i];
+	i++;j++;
+	if ((instruction[i] != ' ') && (instruction[i] != '\t') && (instruction[i] != '\0') && (instruction[i] != '#')) {
+		rt_w[1] = instruction[i];
+		i++;j++;
 	}
-	rt = atoi(instruction[i]); //enregistrement de rt
-	i++;
-	if((instruction[i]!=" ")&&(instruction[i]!="%t")&&(instruction[i]!="%0")&&(instruction[i]!="#")){
-		rt = 10*rt;
-		rt+ = atoi(instruction[i]);
-		i++;
-	}
-	sprintf(rs_w,"%d",rs);
-	sprintf(rt_w,"%d",rt);
-	sprintf(rd_w,"%d",rd);
-	rs_b = decimalToBinary(rs_w);
-	rt_b = decimalToBinary(rt_w);
-	rd_b = decimalToBinary(rd_w);
-	strcpy(binaire, "000000");
-	strcpy(fin, "0000000000011000");
-	strcat(binaire,strcat(rs_b,strcat(rt_b,strcat(rd_b,fin))));
-	hexadecimal = binaryToHexa(binaire);
-	return hexadecimal;
+	rt_w[j] = '\0';
+	
+	rt_instruction = atoi(rt_w);
+	rs_instruction = atoi(rs_w);
+
+	result = (int64_t) registres[rt_instruction] * (int64_t) registres[rs_instruction];
+
+	LO = result&0xffffffff;// LO et HI sont des registres spécialisés, ce sont 
+	HI = result>>32;// les deux derniers éléments du tableau des registres
+
+/*
+	dans l'affichage, LO et HI peuvent être négatifs sans que le résultat le soit,
+	il s'aggit juste de faire leur traduction en binaire puis leur complément à deux si négatifs.
+	on les réassemble à ce moment et on retrouve alors le résultat correct
+*/
+
+	registres[33] = LO;
+	registres[34] = HI;
 }
