@@ -38,6 +38,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -105,8 +106,18 @@
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
     </Bscmake>
+    <Link>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+    <Link>
+      <MapFileName>ProjetMIPS</MapFileName>
+    </Link>
+    <Link>
+      <MapExports>true</MapExports>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="add.c" />
     <ClCompile Include="binaryToDecimal.c" />
     <ClCompile Include="binaryToHexa.c" />
     <ClCompile Include="binaryAddition.c" />
@@ -129,6 +140,7 @@
     <ClInclude Include="binaryToHexa.h" />
     <ClInclude Include="CompileFromText.h" />
     <ClInclude Include="Conversion.h" />
+    <ClInclude Include="fonctionsHexa.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="source.txt" />

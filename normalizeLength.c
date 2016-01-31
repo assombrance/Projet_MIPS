@@ -26,7 +26,6 @@ char* normalizeLength(char* binary) {
 		for (i = offset; i <= length + offset; i++) {
 			binary_normalized[i] = binary[i - offset];
 		}
-
 		binary_normalized[i] = '\0';
 
 		for (j = 0; j < offset; j++) {
@@ -37,6 +36,6 @@ char* normalizeLength(char* binary) {
 	else {
 		return binary;
 	}
-	
+
 	return binary_normalized;
 }
