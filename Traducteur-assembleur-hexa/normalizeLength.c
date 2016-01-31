@@ -18,8 +18,8 @@ char* normalizeLength(char* binary_normalized, char* binary) {
 	offset = HALF_BYTE - r;
 
 	if (r != 0) {
-		/*
-		binary_normalized = malloc(sizeof(*binary_normalized) * SIZE_MAX); (length + offset + 1));*/
+
+		/* binary_normalized = realloc(sizeof(*binary_normalized) * (length + offset ) +1);*/
 
 		for (i = offset; i < length + offset; i++) {
 			binary_normalized[i] = binary[i - offset];
