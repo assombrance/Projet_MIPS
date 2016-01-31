@@ -12,9 +12,12 @@ int main(int argc, char* argv[]) {
 
 	source = fopen("source.txt", "r");
 
-	BUFFER = malloc(sizeof(BUFFER) * 32);
+	BUFFER = malloc(sizeof(*BUFFER) * 32);
 	res = malloc(sizeof(*BUFFER) * 32);
 
+	res = addHexa(" add 1, 2, 3");
+
+	/*
 	if (source == NULL) {
 		fprintf(stderr, "Unable to open one of the file \n");
 		exit(EXIT_FAILURE);
@@ -25,7 +28,7 @@ int main(int argc, char* argv[]) {
 		/*	# : 35
 			tabulation : 9
 			espace : 32
-		*/
+		
 	
 	for (j = 0; j <= 100; j++) {
 		do {
@@ -42,10 +45,10 @@ int main(int argc, char* argv[]) {
 		BUFFER = malloc(sizeof(*BUFFER) * 32);
 		i = 0;
 	}
-		/*Filtrer la mnémonique présente dans la ligne */
+		/*Filtrer la mnémonique présente dans la ligne 
 	
 	fclose(source);
-
+	*/
 
 	return 0;
 }

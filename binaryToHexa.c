@@ -12,7 +12,7 @@
 char* binaryToHexa(char* binary) {
 
 	unsigned int i, j, k;
-	char* mask;
+	char* mask = NULL;
 	char* resBinary = NULL;
 	char* resHexa = NULL;
 	char* binary_masked = NULL;
@@ -22,9 +22,10 @@ char* binaryToHexa(char* binary) {
 	resBinary = malloc(sizeof(*resBinary) * (strlen(binary) + 1));
 	resHexa = malloc(sizeof(*resHexa) * (strlen(binary) + 1));
 	binary_parsed = malloc(sizeof(*binary_parsed) * (HALF_BYTE + 1));
-	binary_normalized = malloc(sizeof(*binary_normalized) * 32);
+	binary_masked = malloc(sizeof(*binary_masked) * 128);
+	binary_normalized = malloc(sizeof(*binary_normalized) * 128);
 
-	if (resBinary == NULL || resHexa == NULL || binary_parsed == NULL || binary_normalized == NULL ) {
+	if (resBinary == NULL || resHexa == NULL || binary_parsed == NULL || binary_normalized == NULL) {
 		fprintf(stderr, "Allocation mémoire impossible \n");
 		exit(EXIT_FAILURE);
 	}
@@ -49,7 +50,6 @@ char* binaryToHexa(char* binary) {
 
 		/* Création du masque */
 		mask = Cmask(strlen(resBinary), i + 1 - 4, 4);
-		binary_masked = malloc(sizeof(*binary_masked) * (strlen(mask) + 1));
 		for (k = 0; k < strlen(mask); k++) {
 			binary_masked[k] = '0';
 		}
@@ -63,6 +63,11 @@ char* binaryToHexa(char* binary) {
 		resHexa[j + 1] = '\0';
 
 	}
+
+	free(binary_masked);
+	free(binary_parsed);
+	free(binary_normalized);
+	free(resBinary);
 
 	return resHexa;
 }
