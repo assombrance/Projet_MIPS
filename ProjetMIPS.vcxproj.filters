@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Trash">
       <UniqueIdentifier>{a34db3f3-fba5-4782-85fa-4c11e311946e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Fonctions">
+      <UniqueIdentifier>{58db6b59-2bff-4aa8-8ee8-b55d8b1a69ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -78,6 +81,9 @@
     <ClCompile Include="compileFromText.c">
       <Filter>Source Files\Trash</Filter>
     </ClCompile>
+    <ClCompile Include="add.c">
+      <Filter>Source Files\Fonctions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryToHexa.h">
@@ -87,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CompileFromText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fonctionsHexa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
